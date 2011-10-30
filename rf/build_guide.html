@@ -1,0 +1,427 @@
+<html>
+  <head>
+    <title>Nanode RF - Build Guide</title>
+
+    <link type="text/css" href="/nanode/style.css" rel="stylesheet" media="screen" />
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Nanode RF - Build Guide</h1>
+
+      <p style="font-weight: bold;">
+        Work in progress - there are the following known errors which i'll correct with the 2nd board build:
+        <ul>
+          <li>Green LED is 5mm as I didn't have a 3mm one.</li>
+          <li>10nF ceramics get left until later in the build process as I didn't spot them in the photos until later in the build.</li>
+          <li>Should have fitted the 23K256 DIL socket with the others.</li>
+          <li>Need to make the 4001 diode, capacitor and 7805 optional and fitted at the end</li>
+          <li>Need to move the RFM12B fitting to the end, after the voltage tests</li>
+          <li>Not put the optional / surface mount IC's on yet (23K256, RTC etc) and i've not got a supercapacitor or mosfet.</li>
+        </ul>
+      </p>
+
+      <p>
+        <strong>Building a Nanode RF - in Words and Pictures</strong><br />
+        <br />
+        Here's how to build up a Nanode RF as a step by step guide. At most it should take you a couple of hours.<br />
+        <br />
+        You can view a <a href="http://www.flickr.com/photos/68664612@N02/sets/72157627998823702/" target="_blank">Flickr stream with all of the photos here</a> - am going to label each step up with comments. You can also click on each of the images below to view it on Flickr and view a bigger version or zoom in.<br />
+        <br />
+        The pcb is built in an orderly sequence starting with the resistors and small components that are low on the board and then working up to the bulkier parts like connectors.<br />
+        After soldering each component, you need to cut off the excess lead from the bottom using some cutters.<br />
+        <br />
+        Building a Nanode RF is just a case of replicating the steps shown in the following picture sequence - no real electronics experience needed - just basic soldering skills.<br />
+        <br />
+        It's recommended you read through the whole of this guide and familiarise yourself with the steps before you start the actual build.
+      </p>
+
+      <h2>Step 1</h2>
+
+      <p>
+        Layout and identify the components from the kit.<br />
+        <br />
+        
+        <a href="http://www.flickr.com/photos/68664612@N02/6289585110/" title="Nanode RF Kit Contents by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6112/6289585110_75b21d562b_z.jpg" width="640" height="426" alt="Nanode RF Kit Contents"></a><br />
+  <br />
+
+        Here you see all the resistors, capacitors, connectors, crystals and ICs needed to make the standard build of Nanode RF. Some of the optional components are shown in the bottom left of the photo, such as the Mini SD Card holder, RFM12B RF module, mini USB connector, RTC & crystal and SDRAM. You might or might not have some or all of these extras depending on the kit you bought.
+  Everything should be supplied in a pink antistatic plastic "zip" bag.
+      </p>
+
+      <h2>Step 2</h2>
+
+      <p>
+        Start with the resistors. Bend each leg of the resistor over 90 degrees, right next to the body. The last colour on all of the resistors is brown - it's recommended that you align them all in the same direction and have the brown at the same end.<br />
+        <br />
+
+        First we add the seven 10K resistors - their colour code is Brown, Black, Black, Red. There are five in the middle and two at the right hand side.<br />
+        <br />
+
+        <a href="http://www.flickr.com/photos/68664612@N02/6289068915/" title="10k Resistors by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6102/6289068915_25121c3cbb_z.jpg" width="640" height="426" alt="10k Resistors"></a>
+      </p>
+
+      <h2>Step 3</h2>
+
+      <p>
+        Add the four 51R resistors - their colour code is: Green, Brown, Black, Gold.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289069923/" title="51R Resistors by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6220/6289069923_51a1e3f83a_z.jpg" width="640" height="426" alt="51R Resistors"></a>
+      </p>
+
+      <h2>Step 4</h2>
+
+      <p>
+        Add the four 270R resistors - their colour code is: Red, Purple, Black, Black. Two are in the middle and two at the right hand side.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289590750/" title="DSC_0088 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6053/6289590750_4936203b60_z.jpg" width="640" height="426" alt="DSC_0088"></a>
+      </p>
+
+      <h2>Step 5</h2>
+
+      <p>
+        Add the 2k resistor at the top of the line of resistors. It's colour code is: Red, Black, Black, Brown.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289072435/" title="DSC_0090 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6091/6289072435_0a28e79f62_z.jpg" width="640" height="426" alt="DSC_0090"></a>
+      </p>
+
+      <h2>Step 6</h2>
+
+      <p>
+        Add the 1R resistor in the middle of the line of resistors. It's colour code is: Brown, Black, Black, Silver.<br />
+        <br />
+        The silver and gold colours look very similar in certain light conditions - if in doubt use a multimeter to check the value before you fit it.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289591988/" title="DSC_0091 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6111/6289591988_86abb6e6aa_z.jpg" width="640" height="426" alt="DSC_0091"></a>
+      </p>
+
+      <h2>Step 7</h2>
+
+      <p>
+        Add the 10R reistor at the bottom of the line of resistors. It's colour code is: Brown, Black, Black, Gold.<br />
+        <br />
+        The silver and gold colours look very similar in certain light conditions - if in doubt use a multimeter to check the value before you fit it.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289073983/" title="DSC_0094 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6105/6289073983_221f3bd3aa_z.jpg" width="640" height="426" alt="DSC_0094"></a>
+      </p>
+
+      <h2>Step 8</h2>
+
+      <p>
+        If you require the ability to power the board from an external supply (instead of the FTDI or USB), fit the 1N4001 reverse polarity protection diode. It's right next to the space for the RFM12B wireless. Note that the banded end is lined up with the band on the pcb legend (away from the edge of the board)<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289593724/" title="DSC_0095 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6233/6289593724_c97621a291_z.jpg" width="640" height="426" alt="DSC_0095"></a>
+      </p>
+
+      <h2>Step 9</h2>
+
+      <p>
+        Fit the three DIL socket's for the IC's as shown in the picture. Note that one end has a small notice in it - this signifies pin 1 and should match up with the notch on the legend.<br />
+        <br />
+        It's best to tack diagonally opposite corners to hold the socket in place whilst the rest of the pins are soldered. Make sure they are fitted flat on to the board.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289594320/" title="DSC_0096 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6032/6289594320_b9be45f2dc_z.jpg" width="640" height="426" alt="DSC_0096"></a>
+      </p>
+
+      <p><strong>Need to change this to fit the optional 23K256 SRAM IC socket holder here too.</strong></p>
+
+      <h2>Step 9</h2>
+
+      <p>
+        Fit the two crystals. The 16Mhz (labelled 16.00SCA) should be on the right, next to the ATMega328 and the 25Mhz (labelled 25.00SCA) should be at the top, next to the ENC28J60.<br />
+        <br />
+        Crystals should be inserted so that they are lifted approximately 1mm above the pcb to prevent possibilty of metal can shorting to vias beneath.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289075939/" title="DSC_0098 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6113/6289075939_b99b4b43c0_z.jpg" width="640" height="426" alt="DSC_0098"></a>
+      </p>
+
+      <h2>Step 10</h2>
+
+      <p>
+        Add the four 22pF ceramic capacitors to each side of each of the crystals. They are marked with 22 (don't confuse them with the two 10nF's which look the same but are labelled 103).<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289596162/" title="DSC_0100 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6052/6289596162_d8e8df26e2_z.jpg" width="640" height="426" alt="DSC_0100"></a>
+      </p>
+
+      <h2>Step 11</h2>
+
+      <p>
+        Add the seven 100nF capacitors. They are blue and in three groups - two at the left of the ENC28J60, three at the right of it and two at the right hand side of the board.<br />
+        <br />
+        Note that there is a spare location for a 100nF capacitor between pin 1 of the ATmega328 IC and the reset switch. Do not fit any component in this location.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289077375/" title="DSC_0103 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6096/6289077375_9490a66c45_z.jpg" width="640" height="426" alt="DSC_0103"></a>
+      </p>
+
+      <h2>Step 12</h2>
+
+      <p>
+        Add the first of the MCP1702 3.3v voltage regulators - on the left hand side of the board near the 25Mhz crystal. Make sure the flat edge aligns with the flat edge on the legend.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289599000/" title="DSC_0108 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6044/6289599000_a545992f6b_z.jpg" width="640" height="426" alt="DSC_0108"></a>      
+      </p>
+
+      <h2>Step 13</h2>
+
+      <p>
+        Add the second of the MCP1702 3.3v voltage regulators - on the right hand side of the board near the 16Mhz crystal. Make sure the flat edge aligns with the flat edge on the legend.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289080535/" title="DSC_0111 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6227/6289080535_eae0f90b2a_z.jpg" width="640" height="426" alt="DSC_0111"></a>
+      </p>
+
+      <p>
+        Your board should now look like this:<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289599678/" title="DSC_0110 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6108/6289599678_87c9e576d6_z.jpg" width="640" height="426" alt="DSC_0110"></a>
+      </p>
+
+      <p><strong>Note, this is where I should have added the 10nF capacitors!</strong></p>
+
+      <h2>Step 14</h2>
+
+      <p>
+        There are three electrolytic capacitors - one at the top left near the MCP1702, one at the right hand side next to the 16Mhz crystal and one in the middle to the right of the magjack. Ensure they are fitted the correct way round - the long leg needs to go to the + symbol on the legend and you will be able to see the white side on the photos.<br />
+        <br />
+        <strong>EDIT: Need to change this to make the VIN capacitor optional</strong><br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289081327/" title="DSC_0114 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6221/6289081327_d9f6737247_z.jpg" width="640" height="426" alt="DSC_0114"></a>
+      </p>
+
+
+      <h2>Step 15</h2>
+
+      <p>
+         Add the two LED's - one red and one green. Both are at the right hand side of the board. Ensure the long leg's (and round edge) go to the + symbol on the legend which is at the edge of the board.<br />
+         <br />
+         <strong>Note that I didn't have a 3mm green LED so I had to use a 5mm one - this will be fixed in the next build.</strong><br />
+         <br />
+         <a href="http://www.flickr.com/photos/68664612@N02/6289601366/" title="DSC_0116 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6110/6289601366_5301ccfa55_z.jpg" width="640" height="426" alt="DSC_0116"></a>
+      </p>
+
+      <h2>Step 16</h2>
+
+      <p>
+        Add the switch under the LED's.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289601992/" title="DSC_0118 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6059/6289601992_6f49d857bc_z.jpg" width="640" height="426" alt="DSC_0118"></a>
+      </p>
+
+      <h2>Step 17</h2>
+
+      <p>
+        Add the Arduino shield connectors. There are 2 x 6 way and 2 x 8 way SIL sockets. Make sure you get them in the inner lines of holes and that they are fitted straight and vertical. Best to tack one end pin whilst you hold them straight - check the alignment then solder the remaining pins in place.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289604486/" title="DSC_0125 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6222/6289604486_8c79cbbdbc_z.jpg" width="640" height="426" alt="DSC_0125"></a>
+      </p>
+
+      <h2>Step 18</h2>
+
+      <p>
+        If you are going to fit the optional RFM12B wireless module, You need to do that now before access is obstructed by the magjack and 7805. Place the module on the pads (observe the orientation - crystal to the outside) and solder each pad onto the board from above.<br />
+        <br />
+        <strong>EDIT: Need to move this to after the voltage tests.</strong><br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289603782/" title="DSC_0122 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6216/6289603782_e206dd69f4_z.jpg" width="640" height="426" alt="DSC_0122"></a>
+        <a href="http://www.flickr.com/photos/68664612@N02/6289080175/" title="DSC_0130 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6058/6289080175_636c2c88fe_z.jpg" width="640" height="426" alt="DSC_0130"></a>
+      </p>
+
+      <h2>Step 19</h2>
+
+      <p>
+        Fit the two 10nF ceramic capacitors - to the right of the magjack. They are labelled 103. <strong>These should have been done with the other capacitors above, as noted and will be fixed on the next build.</strong><br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289418597/" title="DSC_0133 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6107/6289418597_b6647a3880_z.jpg" width="640" height="426" alt="DSC_0133"></a>
+      </p>
+
+      <h2>Step 20</h2>
+
+      <p>
+        Add the programming header - the 6-pin right angle header on the right hand side of the board.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289937250/" title="DSC_0134 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6060/6289937250_a51af5cc73_z.jpg" width="640" height="426" alt="DSC_0134"></a>
+      </p>
+
+      <h2>Step 21</h2>
+
+      <p>
+        Add the mini USB connector - next to the LED's.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289921444/" title="DSC_0136 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6054/6289921444_b0f8f0bfb8_z.jpg" width="640" height="426" alt="DSC_0136"></a>
+      </p>
+
+      <h2>Step 22</h2>
+
+      <p>
+        Add the magjack at the left hand side of the board.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289922876/" title="DSC_0138 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6114/6289922876_5c84d7ab1b_z.jpg" width="640" height="426" alt="DSC_0138"></a>
+      </p>
+
+      <h2>Step 23</h2>
+
+      <p>
+        You have nearly completed the board. However, before we add any of the (expensive) IC's, we need to check that they will receive the correct voltage.<br />
+        <br />
+        Use a multimeter (in DC mode) to measure the voltage between pin 7 of the 74HC125 (GND) and pin 28 of the ENC28J60, as shown in the photo. You should receive something around 3.3v.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6290551891/" title="Nanode_RF_040 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6035/6290551891_bde29c4c98_z.jpg" width="640" height="480" alt="Nanode_RF_040"></a>     
+      </p>
+
+      <h2>Step 24</h2>
+
+      <p>
+        Measure the voltage between pin 7 of the 74HC125 (GND) and the bottom pin of the 3 pads below the 16Mhz crystal, as shown in the photos. This should give somewhere around 3.3v.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6290551929/" title="Nanode_RF_041 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6107/6290551929_fc6c730b54_z.jpg" width="640" height="480" alt="Nanode_RF_041"></a>
+        <a href="http://www.flickr.com/photos/68664612@N02/6291072988/" title="Nanode_RF_042 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6237/6291072988_0217cd06ba_z.jpg" width="640" height="480" alt="Nanode_RF_042"></a>
+      </p>
+
+      <h2>Step 25</h2>
+
+      <p>
+        Measure the voltage between pin 7 of the 74HC125 (GND) and the top pin of the 3 pads below the 16Mhz crystal, as shown in the photos. This should give somewhere around 5v.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6291073036/" title="Nanode_RF_044 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6118/6291073036_fd23271482_z.jpg" width="640" height="480" alt="Nanode_RF_044"></a>
+        <a href="http://www.flickr.com/photos/68664612@N02/6291073088/" title="Nanode_RF_043 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6055/6291073088_818c9c24a4_z.jpg" width="640" height="480" alt="Nanode_RF_043"></a>
+      </p>
+
+      <p><strong>Only proceed if all of your voltage readings from above are correct - if they weren't then you have a problem with your build.</strong></p>
+
+      <h2>Step 26</h2>
+
+      <p>
+        You now need around 10cm of single core wire.<br />
+        <br />
+        You need to add a short wire link between the bottom pin (where you measured 3.3v above) and the middle pin of the 3 pads. This connects 3.3v to the RFM12B and other components (<strong>Need to confirm which!</strong>).<br />
+        <br />
+        <strong>Note that only advanced users should ever use the board with anything other than the wire link in the bottom position with the RFM12B or the SRAM chips fitted as this will send 5v to 3.3v only parts.</strong><br />
+        <br />
+        You also need to add an 82mm (8.2cm) wire antenna to the ANT pad on the RFM12B, as shown in the photo.<br />
+        <br />
+        You can now add the IC's in to their sockets.<br />
+        <br />
+        <a href="http://www.flickr.com/photos/68664612@N02/6289411387/" title="DSC_0151 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6035/6289411387_deca320b27_z.jpg" width="640" height="426" alt="DSC_0151"></a>
+        <a href="http://www.flickr.com/photos/68664612@N02/6289414853/" title="DSC_0158 by Ian Chilton, on Flickr"><img src="http://farm7.static.flickr.com/6223/6289414853_484c94b91a_z.jpg" width="640" height="426" alt="DSC_0158"></a>
+      </p>
+
+      <p>
+        <strong>EDIT: Need to add a step here to add the 7805 if you require external power.</strong><br />
+      </p>
+
+      <p>
+        Well done! - that's the basic board built!
+      </p>
+
+      <h2>Optional Components</h2>
+
+      <p>
+        Need to add info on adding the optional components:
+        <li>SRAM</li>
+        <li>RTC</li>
+        <li>SD Card</li>
+        <li>Super capacitor + mosfet</li>
+      </p>
+
+      <h2>Sample/Test Code</h2>
+
+      <p>
+        Need to add some sample/test code:
+        <li>Run DHCP/network test Sketch</li>
+        <li>RTC</li>
+        <li>SRAM</li>
+      </p>
+
+      <h2>Nanode RF Pin List</h2>
+
+      <p>
+        <table border="1" cellspacing="0" cellpadding="4">
+          <tr>
+            <th> Pin </th>
+            <th> Description </th>
+          </tr>
+          <tr>
+            <td> Digital 0 </td>
+            <td> Serial RX </td>
+          </tr>
+          <tr>
+            <td> Digital 1 </td>
+            <td> Serial TX </td>
+          </tr>
+          <tr>
+            <td> Digital 2 </td>
+            <td> RFM12B Interrupt (INT 0) - if installed</td>
+          </tr>
+          <tr>
+            <td> Digital 3 </td>
+            <td> <strong>TBC</strong> </td>
+          </tr>
+          <tr>
+            <td> Digital 4 </td>
+            <td> <strong>TBC</strong> </td>
+          </tr>
+          <tr>
+            <td> Digital 5 </td>
+            <td> <strong>TBC</strong> </td>
+          <tr>
+            <td> Digital 6 </td>
+            <td> Red LED </td>
+          </tr>
+          <tr>
+            <td> Digital 7 </td>
+            <td> UNI/O bus: MAC Address (11AA02E48) (<strong>TBC</strong>) - if installed</td>
+          </tr>
+          <tr>
+            <td> Digital 8 </td>
+            <td> SPI bus: Ethernet Slave Select</td>
+          </tr>
+          <tr>
+            <td> Digital 9 </td>
+            <td> <strong>TBC</strong> </td>
+          </tr>
+          <tr>
+            <td> Digital 10 </td>
+            <td> RFM12B Slave Select - if installed </td>
+          </tr>
+          <tr>
+            <td> Digital 11 </td>
+            <td> SPI bus: Shared MOSI (Master Output, Slave Input) </td>
+          </tr>
+          <tr>
+            <td> Digital 12 </td>
+            <td> SPI bus: Shared MISO (Master Input, Slave Output) </td>
+          </tr>
+          <tr>
+            <td> Digital 13 </td>
+            <td> SPI bus: Shared Serial Clock (output from master) </td>
+          </tr>
+          <tr>
+            <td> Analog 0 </td>
+            <td> <i> Spare and available for use </i> </td>
+          </tr>
+          <tr>
+            <td> Analog 1 </td>
+            <td> <i> Spare and available for use </i> </td>
+          </tr>
+          <tr>
+            <td> Analog 2 </td>
+            <td> <i> Spare and available for use </i> </td>
+          </tr>
+          <tr>
+            <td> Analog 3 </td>
+            <td> <i> Spare and available for use </i> </td>
+          </tr>
+          <tr>
+            <td> Analog 4 </td>
+            <td> <i> Spare and available for use </i> </td>
+          </tr>
+          <tr>
+            <td> Analog 5 </td>
+            <td> <i> Spare and available for use </i> </td>
+          </tr>
+        </table>
+      </p>
+
+      <p>&nbsp;</p>
+    </div>
+  </body>
+</html>
