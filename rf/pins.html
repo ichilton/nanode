@@ -33,34 +33,34 @@
           </tr>
           <tr>
             <td> Digital 3 </td>
-            <td> <strong>TBC</strong> </td>
+            <td> Interrupt/Alarm Output from RFM12B - if installed </td>
           </tr>
           <tr>
             <td> Digital 4 </td>
-            <td> <strong>TBC</strong> </td>
+            <td> Slave Select for 23K256 SOIC and SD Card - if installed </td>
           </tr>
           <tr>
             <td> Digital 5 </td>
-            <td> <strong>TBC</strong> </td>
+            <td> Green LED </td>
           <tr>
             <td> Digital 6 </td>
             <td> Red LED </td>
           </tr>
           <tr>
             <td> Digital 7 </td>
-            <td> UNI/O bus: MAC Address (11AA02E48) (<strong>TBC</strong>) - if installed</td>
+            <td> UNI/O bus: MAC Address (11AA02E48) - if installed</td>
           </tr>
           <tr>
             <td> Digital 8 </td>
-            <td> SPI bus: Ethernet Slave Select</td>
+            <td> Slave Select for ENC28J60 Ethernet </td>
           </tr>
           <tr>
             <td> Digital 9 </td>
-            <td> <strong>TBC</strong> </td>
+            <td> Slave Select for 23K256 SRAM (DIP) - if installed </td>
           </tr>
           <tr>
             <td> Digital 10 </td>
-            <td> RFM12B Slave Select - if installed </td>
+            <td> Slacve Select for RFM12B - if installed </td>
           </tr>
           <tr>
             <td> Digital 11 </td>
@@ -92,14 +92,23 @@
           </tr>
           <tr>
             <td> Analog 4 </td>
-            <td> <i> Spare and available for use </i> </td>
+            <td> I2C Bus: SDA (data) </td>
           </tr>
           <tr>
             <td> Analog 5 </td>
-            <td> <i> Spare and available for use </i> </td>
+            <td> I2C Bus: SCL (clock) </td>
           </tr>
         </table>
       </p>
+
+      <h2>Notes</h2>
+
+      <ul>
+        <li>The following use the SPI Bus (Dig 11/12/13) - ENC28J60, RFM12B, 23K256 and SD Card. They are selected by using their slave select pin, as above.</li>
+        <li>The MCP79410 / MCP79411 / MCP79412 RTC/SRAM/MAC chip uses the I2C Bus (A4 & A5).</li>
+        <li>The MCP79411 and MCP79412 have a MAC address on-board so the 11AA02E48 is then not required.</li>
+        <li>The 23K256 SOIC socket and the SD Card use the same slave select pin so only one of these can be fitted at a time. The 23K256 DIP socket is independant so that can be used at the same time as one of them.</li>
+      </ul>
 
       <p>&nbsp;</p>
 
