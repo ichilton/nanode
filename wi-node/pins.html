@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <title>Wi-Node - Pins List</title>
+
+    <link type="text/css" href="/nanode/css/style.css" rel="stylesheet" media="screen" />
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Wi-Node - Pins List</h1>
+
+      <p>
+        <a href="/nanode">Return to index page</a>
+      </p>
+
+      <p>
+        <table border="1" cellspacing="0" cellpadding="4">
+          <tr>
+            <th> Pin </th>
+            <th> Description </th>
+          </tr>
+          <tr>
+            <td> Digital 0 </td>
+            <td> Serial RX </td>
+          </tr>
+          <tr>
+            <td> Digital 1 </td>
+            <td> Serial TX </td>
+          </tr>
+          <tr>
+            <td> Digital 2 </td>
+            <td> RFM12B Interrupt (INT 0) - <i>if installed</i></td>
+          </tr>
+          <tr>
+            <td> Digital 3 </td>
+            <td>
+              Interrupt / Wake Up Alarm Output from MCP7941x - <i>if installed</i><br />
+              Enable ports 3 & 4 on the L293D <i>if installed</i> - if JP4 is shorted between 2 and 3.
+            </td>
+          </tr>
+          <tr>
+            <td> Digital 4 </td>
+            <td>
+              Slave Select for 23K256 SOIC and SD Card - <i>if installed</i><br />
+              Input 1 for L293D <i>if installed</i>
+            </td>
+          </tr>
+          <tr>
+            <td> Digital 5 </td>
+            <td> Input 2 for L293D <i>if installed</i> </td>
+          <tr>
+            <td> Digital 6 </td>
+            <td>
+              Red LED <br />
+              Input 3 for L293D <i>if installed</i>
+            </td>
+          </tr>
+          <tr>
+            <td> Digital 7 </td>
+            <td> Input 4 for L293D <i>if installed</i> </td>
+          </tr>
+          <tr>
+            <td> Digital 8 </td>
+            <td> <i> Spare and available for use </i> </td>
+          </tr>
+          <tr>
+            <td> Digital 9 </td>
+            <td>
+              Slave Select for 23K256 SRAM (DIP) - <i>if installed</i><br />
+              Enable ports 1 & 2 on the L293D <i>if installed</i><br />
+              Enable ports 3 & 4 on the L293D <i>if installed</i> - if JP4 is shorted between 1 and 2.
+            </td>
+          </tr>
+          <tr>
+            <td> Digital 10 </td>
+            <td> Slave Select for RFM12B - <i>if installed</i> </td>
+          </tr>
+          <tr>
+            <td> Digital 11 </td>
+            <td> SPI bus: Shared MOSI (Master Output, Slave Input) </td>
+          </tr>
+          <tr>
+            <td> Digital 12 </td>
+            <td> SPI bus: Shared MISO (Master Input, Slave Output) </td>
+          </tr>
+          <tr>
+            <td> Digital 13 </td>
+            <td> SPI bus: Shared Serial Clock (output from master) </td>
+          </tr>
+          <tr>
+            <td> Analog 0 </td>
+            <td> <i> Spare and available for use - on screw terminals with up to 16v inputs </i> </td>
+          </tr>
+          <tr>
+            <td> Analog 1 </td>
+            <td> <i> Spare and available for use - on screw terminals with up to 16v inputs </i> </td>
+          </tr>
+          <tr>
+            <td> Analog 2 </td>
+            <td> <i> Spare and available for use - on screw terminals with up to 16v inputs </i> </td>
+          </tr>
+          <tr>
+            <td> Analog 3 </td>
+            <td> <i> Spare and available for use - on screw terminals with up to 16v inputs </i> </td>
+          </tr>
+          <tr>
+            <td> Analog 4 </td>
+            <td> I2C Bus: SDA (data) </td>
+          </tr>
+          <tr>
+            <td> Analog 5 </td>
+            <td> I2C Bus: SCL (clock) </td>
+          </tr>
+        </table>
+      </p>
+
+      <h2>Notes</h2>
+
+      <ul>
+        <li>The following use the SPI Bus (Dig 11/12/13) - ENC28J60, RFM12B, 23K256 and SD Card. They are selected by using their slave select pin, as above.</li>
+        <li>The MCP79410 / MCP79411 / MCP79412 RTC/SRAM/MAC chip uses the I2C Bus (A4 & A5).</li>
+        <li>The MCP79411 and MCP79412 have a MAC address on-board so the 11AA02E48 is then not required.</li>
+        <li>The 23K256 SOIC socket and the SD Card use the same slave select pin so only one of these can be fitted at a time. The 23K256 DIP socket is independant so that can be used at the same time as one of them.</li>
+      </ul>
+
+      <p>&nbsp;</p>
+
+      <p>
+        <a href="/nanode">Return to index page</a>
+      </p>
+
+      <p>&nbsp;</p>
+
+    </div>
+  </body>
+</html>
