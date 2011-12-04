@@ -41,7 +41,6 @@
           <tr>
             <td> Digital 4 </td>
             <td>
-              Slave Select for 23K256 SOIC and SD Card - <i>if installed</i><br />
               Input 1 for L293D - <i>if installed</i>
             </td>
           </tr>
@@ -119,8 +118,7 @@
       <ul>
         <li>The following use the SPI Bus (Dig 11/12/13) - ENC28J60, RFM12B, 23K256 and SD Card. They are selected by using their slave select pin, as above.</li>
         <li>The MCP79410 / MCP79411 / MCP79412 RTC/SRAM/MAC chip uses the I2C Bus (A4 & A5).</li>
-        <li>The 23K256 SOIC and the SD Card are mutually exclusive - you can only use one of these at a time (you can however use the SD card with a 23K256 DIP though)</li>
-        <li>The L293D motor driver is mutually exclusive with the 23K256 SOIC, SD Card, 23K256 DIP and will make the Red LED flash</li>
+        <li>The L293D motor driver is mutually exclusive with the SD Card, 23K256 DIP and will make the Red LED flash</li>
       </ul>
 
       <p>&nbsp;</p>
