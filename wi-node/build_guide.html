@@ -47,11 +47,15 @@
       <p>
         Layout and identify the components from the kit.<br />
         <br />
+        The exact kit contents will vary depending on which kit you bought and any optional extras purchased.<br />
+        <br />
+        Here are the components required to build the base node, plus wireless:<br />
+        <br />
 <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/J5tZBfSHjo_71b27yvhwF9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-GvsBUHVhJB8/Ttrk8eyIOfI/AAAAAAAAAB8/z9WH5s_ngkw/s640/DSC_0307.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
 	<table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/NyZu3IaqrlpCNw88rX52J9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-sSdNkAKMK7Q/Ttrk-MimnFI/AAAAAAAAACE/zPbO3L4j3Dg/s640/DSC_0309.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
   <br />
 
-        Here are all the components to build your Wi-Node:<br />
+        Pictured above is:<br />
         <ul>
           <li>The Wi-Node PCB</li>
           <li>
@@ -75,6 +79,68 @@
           <li>Antenna for the RFM12B (optional)</li>
           <li>10k 1% Resistor (Brown, Black, Black, Red)</li>
           <li>100R Resistor (Brown, Black, Black, Black)</li>
+        </ul>
+      </p>
+
+      <p style="margin-top: 50px;">
+        On top of those, additional components can be added to provide additional functions - as sketched out here:<br />
+        <br />
+<table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/SIOpCR93J3Nqqo7rFj-u59MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-h3gOuho8N_I/TtumPXVmVgI/AAAAAAAAAFE/6H3eno1PCVI/s640/DSC_0300.JPG?gl=GB" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
+      </p>
+
+      <p>
+        The green highlighted components are those listed above and are needed to build an Arduino like bare Wi-Node board.<br />
+        <br />
+        Please note the operation of the 3 resistor networks:<br />
+        <ul>
+          <li>RN4 (at the top of the board, labelled 4k7) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, these should just be populated with wire links on pins 1->2, 3->4, 5->6, 7->8, 9->10.</li>
+          <li>RN2 (at the left hand side of the board next to the micro SD slot, labelled 10k) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, this should <strong>not</strong> be fitted</li>
+          <li>RN1 (at the right hand side of the board next to the RTC, labelled 3k3) is for the analogue pins, A0, A2, A2 and A3 and should be fitted if you wish to use these pins as 16v inputs. For normal use it can be removed and R2, R4, R8 and R9 replaced with wire links.</li>
+        </ul>
+      </p>
+
+      <p>
+        We can also see from this what components are required for each of the optional components:
+        <ul>
+          <li>Analogue inputs - these can either be used as standard Arduino analogue inputs, or 16v capable inputs.
+            <ul>
+              <li>Standard Arduino inputs require R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) to be replaced with wire links.</li>
+              <li>16v capable inputs require R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 3K3 resistor network</li>
+            </ul>
+          </li>
+          <li>
+            23K256 SRAM:
+	    <ul>
+	      <li>Info here</li>
+	    </ul>
+          </li>
+          <li>
+            Real Time Clock:
+	    <ul>
+	      <li>Either a Microchip MCP7941x (includes RTC, SRAM, EEPROM and Unique ID) SOIC or a Maxim/Dallas DS1307 DIP or SOIC. There is an 8 pin DIP slot on the top of the board or an 8 pin SOIC slot on the bottom of the board - only one of these should be populated at a time.</li>
+	      <li>2x 10k Resistors (Brown, Black, Black, Red) - R3 and R5.</li>
+	      <li>A 1N4148 Diode</li>
+	      <li>An optional 0.22F super capacitor so the contents of the RTC and SRAM are not lost when the power is removed</li>
+	    </ul>
+          </li>
+          <li>
+            L293D Motor Driver:
+	    <ul>
+	      <li>Info here</li>
+	    </ul>
+          </li>
+          <li>
+            Micro SD Card Slot:
+	    <ul>
+	      <li>Info here</li>
+	    </ul>
+          </li>
+          <li>
+            Power & Serial Socket:
+	    <ul>
+	      <li>Info here</li>
+	    </ul>
+          </li>
         </ul>
       </p>
 
@@ -257,6 +323,40 @@
 
 
       <h2>Step 20 - Wire Links</h2>
+
+      <p>
+        text
+      </p>
+
+
+      <h2>Step 21 - Analogue Inputs (Optional)</h2>
+
+      <p>
+        text
+      </p>
+
+      <h2>Step 22 - 23K256 SRAM (Optional)</h2>
+
+      <p>
+        text
+      </p>
+
+
+      <h2>Step 23 - Real Time Clock (Optional)</h2>
+
+      <p>
+        text
+      </p>
+
+
+      <h2>Step 24 - L293D Motor Driver</h2>
+
+      <p>
+        text
+      </p>
+
+
+      <h2>Step 25 - Micro SD Slot</h2>
 
       <p>
         text
