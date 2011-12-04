@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Wi-Node - PCB Info</title>
+
+    <link type="text/css" href="/nanode/css/style.css" rel="stylesheet" media="screen" />
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Wi-Node - PCB Info</h1>
+
+      <p>
+        <a href="/nanode">Return to index page</a>
+      </p>
+
+      <p>
+        Here is a quick sketch I made of the Wi-Node board and what each part is used for.<br />
+        <br />
+        The green highlighted components are the bare components needed to build an Arduino like bare Wi-Node board. On top of this, you can add an RFM12B radio module to make it a wireless remote node.<br />
+        <br />
+        More information will be coming soon in a series of pictorial build guides (for the various different uses of the Wi-Node), but it's worth explaining about the resistor networks:
+        <ul>
+          <li>RN4 (at the top of the board, labelled 4k7) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, these should just be populated with wire links on pins 1->2, 3->4, 5->6, 7->8, 9->10.</li>
+          <li>RN2 (at the left hand side of the board next to the micro SD slot, labelled 10k) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, this should not be fitted</li>
+          <li>RN1 (at the right hand side of the board next to the RTC, labelled 3k3) is for the analog pins, A0, A2, A2 and A3 and should be fitted if you wish to use these pins as 16v inputs. For normal use it can be removed and R2, R4, R8 and R9 replaced with wire links.</li>
+        </ul>
+	<a href="https://picasaweb.google.com/lh/photo/0KQAvFDkoes8jPCGPDbR9NMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-Wh06Qpe27VU/Ttq81fR-6JI/AAAAAAAAABc/yLbtryR2Dik/s640/DSC_0300.JPG" height="426" width="640" /></a>
+      </p>
+
+      <p>&nbsp;</p>
+
+      <p>
+        <a href="/nanode">Return to index page</a>
+      </p>
+
+      <p>&nbsp;</p>
+
+    </div>
+  </body>
+</html>
