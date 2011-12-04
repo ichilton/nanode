@@ -65,7 +65,7 @@
               <li><strong>23K256</strong> - SRAM memory <strong><i>(optional)</i></strong></li>
               <li><strong>MCP7941x</strong> - This is a real time clock chip which also includes 1K EEPROM, 64 Bytes SRAM and a Unique ID. If this is included, it may be pre-soldered to the bottom of the board as it is so small. <strong><i>(optional)</i></strong></li>
               <li><strong>11AA02E48</strong> - This contains a unique mac address for use with the ethernet controller. If the MCP7941x is fitted, there are two versions - a MCP79410 and a MCP70411. The MCP79411 contains a pre-programmed mac address and the 11AA02E48 is not required/included. The MCP79410 can store a unique id, but is supplied blank so the 11AA02E48 is required to supply the mac address. It is pre-soldered to the bottom of the board as it is tiny.</li>
-              <li><strong>74HC125</strong> - this is used as a level convertor/buffer for the ENC28J60.</li>
+              <li><strong>74HCT125</strong> - this is used as a level convertor/buffer for the ENC28J60.</li>
             </ul>
           </li>
           <li>DIL Sockets - supplied in the black foam.</li>
@@ -315,7 +315,7 @@
       <p>
         You have nearly completed the board. However, before we add any of the (expensive) IC's, we need to check that they will receive the correct voltage.<br />
         <br />
-        Use a multimeter (in DC mode) to measure the voltage between pin 7 of the 74HC125 (GND) and pin 28 of the ENC28J60, as shown in the photo. You should receive something around 3.3v.<br />
+        Use a multimeter (in DC mode) to measure the voltage between pin 7 of the 74HCT125 (GND) and pin 28 of the ENC28J60, as shown in the photo. You should receive something around 3.3v.<br />
         <br />
         <a href="http://www.flickr.com/photos/68664612@N02/6365816079/" title="AZ1 - Step 22 - Voltage Check 1 by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6038/6365816079_a37435deb9_z.jpg" width="640" height="426" alt="AZ1 - Step 22 - Voltage Check 1"></a>
         <a href="http://www.flickr.com/photos/68664612@N02/6365821531/" title="AZ3 - Step 22 - Voltage Check 1 by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6044/6365821531_0751c9ff6e_z.jpg" width="640" height="426" alt="AZ3 - Step 22 - Voltage Check 1"></a>
@@ -325,7 +325,7 @@
       <h2>Step 23 - Voltage Check</h2>
 
       <p>
-        Measure the voltage between pin 7 of the 74HC125 (GND) and the bottom pin of the 3 pads below the 16Mhz crystal, as shown in the photos. This should give somewhere around 3.3v.<br />
+        Measure the voltage between pin 7 of the 74HCT125 (GND) and the bottom pin of the 3 pads below the 16Mhz crystal, as shown in the photos. This should give somewhere around 3.3v.<br />
         <br />
         <a href="http://www.flickr.com/photos/68664612@N02/6365817615/" title="BA1 - Step 23 - Voltage Check 2 by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6109/6365817615_b17970e19e_z.jpg" width="640" height="426" alt="BA1 - Step 23 - Voltage Check 2"></a>
         <a href="http://www.flickr.com/photos/68664612@N02/6365819005/" title="BA2 - Step 23 - Voltage Check 2 by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6220/6365819005_5b7ca3f6d2_z.jpg" width="640" height="426" alt="BA2 - Step 23 - Voltage Check 2"></a>
@@ -335,7 +335,7 @@
       <h2>Step 24 - Voltage Check</h2>
 
       <p>
-        Measure the voltage between pin 7 of the 74HC125 (GND) and the top pin of the 3 pads below the 16Mhz crystal, as shown in the photos. This should give somewhere around 5v.<br />
+        Measure the voltage between pin 7 of the 74HCT125 (GND) and the top pin of the 3 pads below the 16Mhz crystal, as shown in the photos. This should give somewhere around 5v.<br />
         <br />
         <a href="http://www.flickr.com/photos/68664612@N02/6365819631/" title="BB1 - Step 24 - Voltage Check 3 by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6044/6365819631_3d9300fc5f_z.jpg" width="640" height="426" alt="BB1 - Step 24 - Voltage Check 3"></a>
         <a href="http://www.flickr.com/photos/68664612@N02/6365821045/" title="BB2 - Step 24 - Voltage Check 3 by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6115/6365821045_ba148fd807_z.jpg" width="640" height="426" alt="BB2 - Step 24 - Voltage Check 3"></a>
