@@ -252,7 +252,7 @@
       <h2>Step 15 - 10uF Electrolytic Capacitors</h2>
 
       <p>
-        Fit two of the Electrolytic capacitors - one at the top left near the MCP1702 and one at the right hand side next to the 16Mhz crystal. The third, in the middle to the right of the magjack is optional and will be fitted later if external power is required. Ensure they are fitted the correct way round - the long leg needs to go to the + symbol on the legend and you will be able to see the white side on the photos.<br />
+        Fit two of the Electrolytic capacitors: one at the top left near the MCP1702 and one at the right hand side next to the 16Mhz crystal. The third, in the middle to the right of the magjack is optional and will be fitted later if external power is required. Ensure they are fitted the correct way round. The long leg needs to go to the + symbol on the legend and you will be able to see the white side on the photos.<br />
         <br />
 	<a href="http://www.flickr.com/photos/68664612@N02/6365801841/" title="AO1 - Step 15 - 10uF Electrolytic Capacitors by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6118/6365801841_855677f400_z.jpg" width="640" height="426" alt="AO1 - Step 15 - 10uF Electrolytic Capacitors"></a>
       </p>
@@ -299,7 +299,7 @@
       <h2>Step 20 - Arduino Shield Connectors</h2>
 
       <p>
-        Add the Arduino shield connectors. There are 2 x 6 way and 2 x 8 way SIL sockets. Make sure you get them in the inner lines of holes and that they are fitted straight and vertical. Best to tack one end pin whilst you hold them straight - check the alignment then solder the remaining pins in place.<br />
+        Add the Arduino shield connectors. There are 2 x 6 way and 2 x 8 way SIL sockets. Make sure you get them in the inner lines of holes and that they are fitted straight and vertical. Best to tack one end pin whilst you hold them straight - check the alignment then solder the remaining pins in place. You could also use a shield to keep them aligned if you have one handy.<br />
         <br />
         <a href="http://www.flickr.com/photos/68664612@N02/6365807575/" title="AX1 - Step 20 - Arduino Shield Headers by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6040/6365807575_a953bc9cb5_z.jpg" width="640" height="426" alt="AX1 - Step 20 - Arduino Shield Headers"></a>
 	<a href="http://www.flickr.com/photos/68664612@N02/6365809859/" title="AX3 - Step 20 - Arduino Shield Headers by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6227/6365809859_e2f8482a9c_z.jpg" width="640" height="426" alt="AX3 - Step 20 - Arduino Shield Headers"></a>
@@ -454,6 +454,8 @@
 
       <p>
         Fit the IC's in their respective sockets. Note the spot next to pin 1 and ensure you insert them in the right way.<br />
+        <br /> 
+        IC's usually come with their legs pointing slightly outwards. To get them to fit easily into the socket, you should put the legs flat on a desk and rock the IC slightly to bend the pins inwards - do that at both sides and try again to fit into the socket.<br />
         <br />
         <a href="http://www.flickr.com/photos/68664612@N02/6365795469/" title="BJ1 - Completed Nanode RF by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6042/6365795469_310326f0f0_z.jpg" width="640" height="426" alt="BJ1 - Completed Nanode RF"></a>
         <a href="http://www.flickr.com/photos/68664612@N02/6365796313/" title="BJ2 - Completed Nanode RF by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6214/6365796313_2888fc289a_z.jpg" width="640" height="426" alt="BJ2 - Completed Nanode RF"></a>
@@ -469,6 +471,16 @@
         We can now see if you have done it successfully!<br />
         <br />
         Connect a 5v FTDI cable or Nanode Programming Adapter to power the board. If after a few seconds you see the LED(s) come on and flashing then the microcontroller is working and running code. If not, you should remove power and check over the board and connections.<br />
+        <br />
+        If you are not using a Nanode programming adapter, you can use a normal FTDI lead but ensure the pinouts are as follows (left to right - left nearest the usb connector):
+        <ul>
+          <li>1 - GND</li>
+          <li>2 - Not Connected</li>
+          <li>3 - 5V</li>
+          <li>4 - TXD</li>
+          <li>5 - RXD</li>
+          <li>6 - RST (for auto reset)</li>
+        </ul>
         <br />
         If you have just the Red LED flashing, then you should download my <a href="https://github.com/ichilton/nanode-code/tree/master/nanode_rf_init" target="_blank">Nanode RF Initialisation Sketch</a> and write it to the board.<br />
         <br />
