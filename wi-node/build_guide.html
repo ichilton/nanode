@@ -67,21 +67,21 @@
           <li>
             IC's (supplied on the black foam):
             <ul>
-              <li><strong>ATMega328</strong> - the main microcontroller.</li>
+              <li><strong>ATMega328</strong> - the main microcontroller</li>
             </ul>
           </li>
-          <li>DIL Sockets - supplied in the black foam.</li>
+          <li>28-Pin DIL Socket - supplied in the black foam</li>
           <li>RFM12B Radio Module <strong><i>(optional)</i></strong></li>
-          <li>16Mhz Crystal - for the ATMega328.</li>
-          <li>Switch - for resetting the board.</li>
-          <li>MCP1702-3302 - 3.3v voltage regulator.</li>
-          <li>1x 1N4148 Diode - used as reverse polarity protection for the external power supply</li>
+          <li>16Mhz Crystal - for the ATMega328</li>
+          <li>Switch - for resetting the board</li>
+          <li>MCP1702-3302 - 3.3v voltage regulator</li>
+          <li>1x 1N4148 Diode</li>
           <li>3mm Green LED</li>
           <li>4x 100nF Ceramic Capacitors</li>
           <li>2x 22pF Ceramic Capacitors</li>
           <li>10uF Electrolytic Capacitor</li>
           <li>6-way right-angle programming header</li>
-          <li>4x SIL Sockets - for arduono shield compatibility.</li>
+          <li>4x SIL Sockets - for arduono shield compatibility</li>
           <li>Antenna for the RFM12B (optional)</li>
           <li>10k 1% Resistor (Brown, Black, Black, Red)</li>
           <li>100R Resistor (Brown, Black, Black, Black)</li>
@@ -95,33 +95,26 @@
       </p>
 
       <p>
-        The green highlighted components are those listed above and are needed to build an Arduino like bare Wi-Node board.<br />
-        <br />
-        Please note the operation of the 3 resistor networks:<br />
-        <ul>
-          <li>RN4 (at the top of the board, labelled 4k7) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, these should just be populated with wire links on pins 1->2, 3->4, 5->6, 7->8, 9->10.</li>
-          <li>RN2 (at the left hand side of the board next to the micro SD slot, labelled 10k) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, this should <strong>not</strong> be fitted</li>
-          <li>RN1 (at the right hand side of the board next to the RTC, labelled 3k3) is for the analogue pins, A0, A2, A2 and A3 and should be fitted if you wish to use these pins as 16v inputs. For normal use it can be removed and R2, R4, R8 and R9 replaced with wire links.</li>
-        </ul>
+        The green highlighted components are those listed above and are needed to build an Arduino like bare Wi-Node board.
       </p>
 
       <p>
         We can also see from this what components are required for each of the optional components:
         <ul>
-          <li>Analogue inputs - these can either be used as standard Arduino analogue inputs, or 16v capable inputs.
+          <li><strong>Analogue inputs</strong> - these can either be used as standard Arduino analogue inputs, or 16v capable inputs.
             <ul>
               <li>Standard Arduino inputs require R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) to be replaced with wire links.</li>
               <li>16v capable inputs require R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 3K3 resistor network</li>
             </ul>
           </li>
           <li>
-            23K256 SRAM:
+            <strong>23K256 SPI SRAM</strong>:
 	    <ul>
 	      <li>Info here</li>
 	    </ul>
           </li>
           <li>
-            Real Time Clock:
+            <strong>Real Time Clock</strong>:
 	    <ul>
 	      <li>Either a Microchip MCP7941x (includes RTC, SRAM, EEPROM and Unique ID) SOIC or a Maxim/Dallas DS1307 DIP or SOIC. There is an 8 pin DIP slot on the top of the board or an 8 pin SOIC slot on the bottom of the board - only one of these should be populated at a time.</li>
 	      <li>2x 10k Resistors (Brown, Black, Black, Red) - R3 and R5.</li>
@@ -130,23 +123,32 @@
 	    </ul>
           </li>
           <li>
-            L293D Motor Driver:
+            <strong>L293D Motor Driver</strong>:
 	    <ul>
 	      <li>Info here</li>
 	    </ul>
           </li>
           <li>
-            Micro SD Card Slot:
+            <strong>Micro SD Card Slot</strong>:
 	    <ul>
 	      <li>Info here</li>
 	    </ul>
           </li>
           <li>
-            Power & Serial Socket:
+            <strong>Power & Serial Socket</strong>:
 	    <ul>
 	      <li>Info here</li>
 	    </ul>
           </li>
+        </ul>
+      </p>
+
+      <p>
+        It's worth noting the operation of the 3 resistor networks:<br />
+        <ul>
+          <li>RN1 (at the right hand side of the board next to the RTC, labelled 3k3) is for the analogue pins, A0, A2, A2 and A3 and should be fitted if you wish to use these pins as 16v inputs. For normal use it can be removed and R2, R4, R8 and R9 (at the right hand side of the board, labelled 10k) replaced with wire links.</li>
+          <li>RN2 (at the left hand side of the board next to the micro SD slot, labelled 10k) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, this should <strong>not</strong> be fitted</li>
+          <li>RN4 (at the top of the board, labelled 4k7) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, these should just be populated with wire links on pins 1->2, 3->4, 5->6, 7->8, 9->10.</li>
         </ul>
       </p>
 
@@ -173,7 +175,7 @@
       <h2>Step 3 - 100R Resistor</h2>
 
       <p>
-        Add the 100R resistor - it's colour code is: Brown, Black, Black, Black.<br />
+        Add the 100R resistor - it's colour code is: Brown, Black, Black, Black. It's at the right hand side of the board at the top of the row of resistors.<br />
         <br />
 <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/mCKycHp0UHu3U9rqjUX3yNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-QJfuxsfw2Lk/TtrlBHnzNSI/AAAAAAAAACQ/cxCAbhc3szo/s640/DSC_0312.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -182,7 +184,7 @@
       <h2>Step 4 - 1N4148 Diode</h2>
 
       <p>
-        text
+        Add the 1N4148 diode - this protects the programming interface from any current from an external power supply. It's at the bottom of the board, to the right of the reset switch.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/1Vp7O6iYdr5VrZgEiy3vY9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-W2wpeCN81Yg/TtrlCvSvDwI/AAAAAAAAACU/Zx8xjybBPUg/s400/DSC_0313.JPG" height="266" width="400" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -191,7 +193,7 @@
       <h2>Step 5 - 100nF Ceramic Capacitors</h2>
 
       <p>
-        text
+        Add the four 100nF ceramic capacitors, as per the photo. They are blue and marked 104. One on the left next to the programming header, two to the right of the 23K256 slot and one on the right above the 100R resistor.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/PbvA_YI3BD6SgfprjtIbWNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-rPhENtvCXIk/TtrlEPJ-yII/AAAAAAAAACY/5qEO1sD3wk8/s640/DSC_0314.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -200,7 +202,7 @@
       <h2>Step 6 - 22pF Ceramic Capacitors</h2>
 
       <p>
-        text
+        Add the two 22pF ceramic capacitors. They have black marked tops, are marked 22 and go either side of the 16Mhz crystal (at the right of the ATMega328).<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/hhnLUZ7Tuavr7YVHbH--PtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-UlyfZNjz3e0/TtrlFC8PnWI/AAAAAAAAACc/G2Ffq0wNmAw/s640/DSC_0315.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -209,7 +211,7 @@
       <h2>Step 7 - Crystal</h2>
 
       <p>
-        text
+        Add the 16Mhz crystal - to the right of the ATMega328.<br >
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/ilaO3FQ-LIHAzXz1LNzMVtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-4QEdDWG_fUI/TtrlGX4yEbI/AAAAAAAAACg/9MVSb2HCvK0/s640/DSC_0316.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -218,7 +220,7 @@
       <h2>Step 8 - LED</h2>
 
       <p>
-        text
+        Add the green LED - it's at the top right hand side of the board, next to pin 8 of the L293D. The long leg should go to the top of the board and the shot leg and flat edge should go towards the bottom of the board.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/JtqAKsse1WHQ74zXO29XNtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-KY0-Gg2yD7s/TtrlHvhKEVI/AAAAAAAAACk/CmRTzUuK5HI/s640/DSC_0317.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -227,7 +229,7 @@
       <h2>Step 9 - FTDI / Programming Adapter Header</h2>
 
       <p>
-        text
+        The 6-way right angle header goes at the bottom left of the board. It's used to both program and power the board.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/XhrpknGzYhQ2DI9OqwlKQdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-HriFSQxyVmU/TtrlIu2I33I/AAAAAAAAACo/o4TvG9fkfDs/s640/DSC_0318.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -236,7 +238,7 @@
       <h2>Step 10 - MCP1702 Voltage Regulator</h2>
 
       <p>
-        text
+        Add the MCP1702 3.3v voltage regulator - it's at the bottom left next to the reset switch. The flat edge goes towards the bottom of the board. You should just need to bend the middle pin outwards slightly and insert it into the holes.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/XvcGqC8jN1FsNJdPAWAPYdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-_aE8c7dBEdM/TtrlKDzbt9I/AAAAAAAAACw/-uFk2INl0TU/s640/DSC_0320.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -245,7 +247,7 @@
       <h2>Step 12 - DIL Socket</h2>
 
       <p>
-        text<br />
+        Fit the DIL socket for the ATMega328. Note that one end has a small notch in it - this signifies pin 1 and should match up with the notch on the legend. It's best to tack diagonally opposite corners to hold the socket in place whilst the rest of the pins are soldered. Make sure they are fitted flat on to the board.<br />
         <br />
         <strong>Note: If you are going to fit the optional RFM12B module, it's recommended you leave the DIL Socket until after Step 15 to give more space to get in and solder the RFM12B.</strong><br />
         <br />
