@@ -117,11 +117,12 @@
       <p>
         We can also see from this what components are required for each of the optional components:
         <ul>
-          <li><strong>Analogue inputs</strong> - these can either be used as standard Arduino analogue inputs, or 16v capable inputs.
+          <li><strong>Analogue inputs</strong> - there are three options for these:
             <ul>
-              <li>Standard Arduino inputs require R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) to be replaced with wire links.</li>
-              <li>16v capable inputs require R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 3K3 resistor network.</li>
-              <li>2x 100nF Ceramic Capacitors - C12, C13 for A0 and A1 (need to confirm their use!)</li>
+              <li>For standard Arduino analogue inputs (connecting straight to the ATMega328), Replace R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) with wire links. Do not fit RN1 or C12 or C13.</li>
+              <li>10.25V Inputs (almost exaxtly 10mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 4K7 resistor network.</li>
+              <li>36V Inputs (in roughly 35mV increments per count) - as per above, but fit a 1K resistor network to RN1.</li>
+              <li>If you are using the latter two options, you can also fit 2x optional 100nF Ceramic Capacitors - C12, C13 to make a low pass filter on A0 and A1 with the 10K resistor which filters out any noise above about 1600Hz.</li>
             </ul>
           </li>
           <li>
@@ -169,9 +170,9 @@
       <p>
         It's worth noting the operation of the 3 resistor networks:<br />
         <ul>
-          <li>RN1 (at the right hand side of the board next to the RTC, labelled 3k3) is for the analogue pins, A0, A2, A2 and A3 and should be fitted if you wish to use these pins as 16v inputs. For normal use it can be removed and R2, R4, R8 and R9 (at the right hand side of the board, labelled 10k) replaced with wire links.</li>
-          <li>RN2 (at the left hand side of the board next to the micro SD slot, labelled 10k) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, this should <strong>not</strong> be fitted</li>
-          <li>RN4 (at the top of the board, labelled 4k7) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, these should just be populated with wire links on pins 1->2, 3->4, 5->6, 7->8, 9->10.</li>
+          <li>RN1 (at the right hand side of the board next to the RTC, labelled 3k3) is for the analogue pins, A0, A2, A2 and A3 and should be fitted if you wish to use these pins as high voltage inputs. For normal use it can be removed and R2, R4, R8 and R9 (at the right hand side of the board, labelled 10k) replaced with wire links.</li>
+          <li>RN2 (at the left hand side of the board next to the micro SD slot, incorrectly labelled 4K7) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, this should <strong>not</strong> be fitted. When using the board as a shield, a 10K resistor network should be fitted (see <a href="backpack_build_guide.html">separate build guide</a>.</li>
+          <li>RN4 (at the top of the board, to the right of the RFM12B and above the ATMega328) is for level conversion when using the board as a shield for an existing Arduino/Nanode. When using the board as a standalone node, these should just be populated with wire links on pins 1->2, 3->4, 5->6, 7->8, 9->10.</li>
         </ul>
       </p>
 
