@@ -67,24 +67,24 @@
           <li>
             IC's (supplied on the black foam):
             <ul>
-              <li><strong>ATMega328</strong> - the main microcontroller</li>
+              <li><strong>ATMega328</strong> - IC1: the main microcontroller</li>
             </ul>
           </li>
           <li>28-Pin DIL Socket - supplied in the black foam</li>
           <li>RFM12B Radio Module <strong><i>(optional)</i></strong></li>
-          <li>16Mhz Crystal - for the ATMega328</li>
-          <li>Switch - for resetting the board</li>
-          <li>MCP1702-3302 - 3.3v voltage regulator</li>
-          <li>1x 1N4148 Diode</li>
-          <li>3mm Green LED</li>
-          <li>4x 100nF Ceramic Capacitors</li>
-          <li>2x 22pF Ceramic Capacitors</li>
-          <li>10uF Electrolytic Capacitor</li>
+          <li>16Mhz Crystal - Y1: for the ATMega328</li>
+          <li>Switch - S1: for resetting the board</li>
+          <li>MCP1702-3302 - IC2: 3.3v voltage regulator</li>
+          <li>1N4148 Diode - D1</li>
+          <li>3mm Green LED - LED1</li>
+          <li>4x 100nF Ceramic Capacitors - C1, C2, C3, C4</li>
+          <li>2x 22pF Ceramic Capacitors - C14, C15</li>
+          <li>10uF Electrolytic Capacitor - C5</li>
           <li>6-way right-angle programming header</li>
-          <li>4x SIL Sockets - for arduono shield compatibility</li>
+          <li>4x SIL Sockets - for arduono shield compatibility - SV1, SV2, SV4, SV4</li>
           <li>Antenna for the RFM12B (optional)</li>
-          <li>10k 1% Resistor (Brown, Black, Black, Red)</li>
-          <li>100R Resistor (Brown, Black, Black, Black)</li>
+          <li>10k 1% Resistor (Brown, Black, Black, Red) - R1</li>
+          <li>100R Resistor (Brown, Black, Black, Black) - R10</li>
         </ul>
       </p>
 
@@ -104,40 +104,47 @@
           <li><strong>Analogue inputs</strong> - these can either be used as standard Arduino analogue inputs, or 16v capable inputs.
             <ul>
               <li>Standard Arduino inputs require R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) to be replaced with wire links.</li>
-              <li>16v capable inputs require R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 3K3 resistor network</li>
+              <li>16v capable inputs require R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 3K3 resistor network.</li>
+              <li>2x 100nF Ceramic Capacitors - C12, C13 for A0 and A1 (need to confirm their use!)</li>
             </ul>
           </li>
           <li>
-            <strong>23K256 SPI SRAM</strong>:
+            <strong>23K256 SPI SRAM</strong> - provides extra SRAM for additional data storage. This is accessed using the SPI bus and digital pin 9 as a slave select. <strong>Please note that this can not be used at the same time as the L293D as they share the use of digital pin 9</strong>:
 	    <ul>
-	      <li>Info here</li>
+	      <li>23K256 DIP SRAM IC - IC3</li>
+              <li>100k Resistor - R11</li>
+	      <li>An optional 0.22F super capacitor so the contents of the RTC and SRAM are not lost when the power is removed (shared with the RTC) - C16</li>
 	    </ul>
           </li>
           <li>
-            <strong>Real Time Clock</strong>:
+            <strong>Real Time Clock</strong> - this provides a real time clock using the I2C bus (Analogue pins 4 & 5) with the interrupt/wake up alarm on digital pin 3:
 	    <ul>
-	      <li>Either a Microchip MCP7941x (includes RTC, SRAM, EEPROM and Unique ID) SOIC or a Maxim/Dallas DS1307 DIP or SOIC. There is an 8 pin DIP slot on the top of the board or an 8 pin SOIC slot on the bottom of the board - only one of these should be populated at a time.</li>
+	      <li>Either a Microchip MCP7941x (includes RTC, SRAM, EEPROM and Unique ID) SOIC or a Maxim/Dallas DS1307 DIP (IC5) or SOIC (U$4). There is an 8 pin DIP slot on the top of the board or an 8 pin SOIC slot on the bottom of the board - only one of these should be populated at a time.</li>
 	      <li>2x 10k Resistors (Brown, Black, Black, Red) - R3 and R5.</li>
-	      <li>A 1N4148 Diode</li>
-	      <li>An optional 0.22F super capacitor so the contents of the RTC and SRAM are not lost when the power is removed</li>
+	      <li>1N4148 Diode - D2</li>
+	      <li>An optional 0.22F super capacitor so the contents of the RTC and SRAM are not lost when the power is removed (shared with the 23K256 SRAM) - C16</li>
 	    </ul>
           </li>
           <li>
-            <strong>L293D Motor Driver</strong>:
+            <strong>L293D Motor Driver</strong> - Provides a quadruple high-current half-H driver - designed to provide bidirectional drive currents. This uses digital 4, 5, 6 (shared with the LED) and 7 as inputs. Digital pin 9 is used to enable outputs 1 & 2 (<strong>therefore this can not be used at the same time as the 23K256 SRAM</strong>) and outputs 3 & 4 are either enabled also by digital pin 9 (if JP4 is shorted between pins 1 & 2) or by digital pin 3 (if JP4 is shorted between pins 2 & 3, which stops the use of the interrupt/wake-up function of the MCP7941x). Using the LS293D also stops the use of the Micro SD card as they share the use of digital pin 4.
 	    <ul>
-	      <li>Info here</li>
+	      <li>L293D - quadruple high-current half-H driver IC - IC4</li>
+              <li>100uF Electrolytic Capacitor - C17</li>
+              <li>5x 100nF Ceramic Capacitors - C6, C7, C8, C9, C11</li>
+              <li>7805 5v Voltage Regulator - IC6</li>
+              <li>2x 3-way screw terminals - JP3 (optional)</li>
 	    </ul>
           </li>
           <li>
-            <strong>Micro SD Card Slot</strong>:
+            <strong>Micro SD Card Slot</strong> - allows use of a micro sd card for storate. Uses the SPI bus and digital pin 4 as a slave select pin (<strong>Please note that this can not be used at the same time as the L293D as they share the use of digital pin 4):
 	    <ul>
-	      <li>Info here</li>
+	      <li>Micro SD Card Holder</li>
 	    </ul>
           </li>
           <li>
             <strong>Power & Serial Socket</strong>:
 	    <ul>
-	      <li>Info here</li>
+	      <li>A 4-pin jack socket - X1 is provided to supply GND, VIN, RX and TX. It's at the top right-hand side of the board and labelled on the board as 1503_10. This is not covered in the guide as it's not included in any of the kits and left as an optional extra for advanced users.</li>
 	    </ul>
           </li>
         </ul>
@@ -186,7 +193,7 @@
       <p>
         Add the 1N4148 diode - this protects the programming interface from any current from an external power supply. It's at the bottom of the board, to the right of the reset switch.<br />
         <br />
-        <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/1Vp7O6iYdr5VrZgEiy3vY9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-W2wpeCN81Yg/TtrlCvSvDwI/AAAAAAAAACU/Zx8xjybBPUg/s400/DSC_0313.JPG" height="266" width="400" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
+        <a href="https://picasaweb.google.com/lh/photo/1Vp7O6iYdr5VrZgEiy3vY9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-W2wpeCN81Yg/TtrlCvSvDwI/AAAAAAAAACU/Zx8xjybBPUg/s640/DSC_0313.JPG" height="426" width="640" /></a>
       </p>
 
 
@@ -258,7 +265,7 @@
       <h2>Step 12 - Reset Switch</h2>
 
       <p>
-        text
+        Add the reset switch at the bottom left of the board.<br />
         <br />
 	<table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/PeP3vAwoW_IY4Lwq40ZGCtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-n7FSY5YC1BY/TtrlNir5kxI/AAAAAAAAAC8/F-Kv7Xteyc8/s640/DSC_0323.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -267,7 +274,7 @@
       <h2>Step 13 - 10uF Electrolytic Capacitors</h2>
 
       <p>
-        text
+        Fit the 10uF Electrolytic capacitor just above the MCP1702 on the left hand side of the board. Ensure it is fitted the correct way round. The long leg needs to go to the + symbol on the legend and you will be able to see the white side on the photo (which goes towards the left of the board).
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/WCmrSOiiedy8ucWbxVmRatMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-5b9AI0MqRW8/TtrlPvJT5CI/AAAAAAAAADE/aHXm7s5yWqw/s640/DSC_0325.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -281,14 +288,17 @@
         Use a multimeter (in DC mode) to measure the voltage between pin 7 (GND) and pin 8 (VCC) of the ATMega328, as shown in the photo. You should receive something around 3.3v.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/CnvL40YftY7R04RKZj13MNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-BxQ-LbHVI4Y/TtrlUMxn4II/AAAAAAAAADY/b5swOKaS4xQ/s640/DSC_0330.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
+        <br />
+        It's also worth testing the pads marked VCC and GND on the RFM12B's spot - just to double check out of paranoia! - they should also read around 3.3v.
       </p>
 
-      <p><strong>WARNING: Only proceed if all of your voltage readings from above are correct - if they weren't then you have a problem with your build.</strong></p>
+      <p style="font-size: 18px; margin-top: 30px;"><strong>WARNING: Only proceed if all of your voltage readings from above are correct - if they weren't then you have a problem with your build.</strong></p>
+
 
       <h2>Step 15 - RFM12B - Optional</h2>
 
       <p>
-        text
+        If you are going to fit the optional RFM12B wireless module. Place the module on the pads (observe the orientation - crystal to the outside) and solder each pad onto the board from above. It's worth doing opposite corners first to hold it in place, before doing the remaining pads.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/dztbC6-N-4-s4fvZq8KhhNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-SPpbjbTXHh0/TtrlUsUm2iI/AAAAAAAAADc/R1ql-4rEQj8/s640/DSC_0331.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
 <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/rGBGHZLKLyLMobqVtVc339MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-Xmm8JJnD82Q/TtrlXNo_OGI/AAAAAAAAADk/TYIwvh_sYO4/s640/DSC_0333.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
@@ -298,16 +308,18 @@
       <h2>Step 16 - RFM12B Antenna - Optional</h2>
 
       <p>
-        text
+        If you fitted the RFM12B module, you need to add an antenna - this is a piece of wire of approx 82mm, which will act as a quarter wave for the 868Mhz RF.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/gfc_3--6QPKijoMJ2XT_U9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-gsIxgMKOuwY/TtrlYGtpoJI/AAAAAAAAADo/D0C7g6duTy8/s640/DSC_0334.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
+
+      <p><strong>If you didn't fit the DIL socket earlier, as advised - you can fit that now.</strong></p>
 
 
       <h2>Step 17 - Arduino Shield Connectors - Optional</h2>
 
       <p>
-        text
+        Add the Arduino shield connectors. There are 2 x 6 way and 2 x 8 way SIL sockets. Make sure you get them in the inner lines of holes and that they are fitted straight and vertical. Best to tack one end pin whilst you hold them straight - check the alignment then solder the remaining pins in place. You could also use a shield to keep them aligned if you have one handy.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/_xO136HzCfe4jXSLt-TkhtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-ODjE2jWERLs/TtrlaDbcD5I/AAAAAAAAADw/elEQLeoH1L4/s640/DSC_0336.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
@@ -316,20 +328,22 @@
       <h2>Step 18 - ATMega328 IC</h2>
 
       <p>
-        text
+        Add the ATMega328 IC into the socket. Note the spot next to pin 1 and ensure you insert it in the right way.<br />
+        <br />
+	IC's usually come with their legs pointing slightly outwards. To get them to fit easily into the socket, you should put the legs flat on a desk and rock the IC slightly to bend the pins inwards - do that at both sides and try again to fit into the socket.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/bbU-SS81S8zwSDCheblbK9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-7sT438FqC-w/Ttrla7z61DI/AAAAAAAAAD0/aYLanP5x2VA/s640/DSC_0337.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
 <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/bGiie6skaaU-tcE51gwLmtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-pXJSIhRfftA/TtrldvCriwI/AAAAAAAAAEE/Z_ujvRczgws/s640/DSC_0341.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
 
 
-      <h2>Step 19 - Test Board</h2>
-
       <p>
-        text
+        This concludes the build of the base board.<br />
         <br />
         <table style="width:auto;"><tr><td><a href="https://picasaweb.google.com/lh/photo/gyiH8OyBbpUGiPCqkg_th9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-CA7yP97QjAA/TtrlhbyEtII/AAAAAAAAAEU/2ZlnI6xzHFo/s640/DSC_0345.JPG" height="426" width="640" /></a></td></tr><tr><td style="font-family:arial,sans-serif; font-size:11px; text-align:right">From <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild?authuser=0&feat=embedwebsite">Wi-Node Build</a></td></tr></table>
       </p>
+
+      <p>We'll now look at the different optional steps you may wish to consider.</p>
 
 
       <h2>Step 20 - Wire Links</h2>
@@ -372,6 +386,38 @@
         text
       </p>
 
+
+      <h2>Step 26 - Test Board</h2>
+
+      <p>
+        Congratulations, you have completed the build of your Wi-Node<br />
+        <br />
+        We can now see if you have done it successfully!<br />
+        <br />
+        Connect a 5v FTDI cable or Nanode Programming Adapter to power the board. If after a few seconds you see the LED come on and start flashing then the microcontroller is working and running code. If not, you should remove power and check over the board and connections.<br />
+        <br />
+        If you are not using a Nanode programming adapter, you can use a normal FTDI lead but ensure the pinouts are as follows (left to right - left nearest the usb connector):
+        <ul>
+          <li>1 - GND</li>
+          <li>2 - Not Connected</li>
+          <li>3 - 5V</li>
+          <li>4 - TXD</li>
+          <li>5 - RXD</li>
+          <li>6 - RST (for auto reset)</li>
+        </ul>
+      </p>
+
+      <p>
+        If you have two boards with RFM12B modules, you can test them by using my <a href="https://github.com/ichilton/nanode-code/tree/master/test_rfm12b" target="_blank">RFM12B Test</a> code.
+      </p>
+
+      <p>
+        If you have fitted the optional MCP7941x Real Time Clock, you can test that out by using my <a href="https://github.com/ichilton/mcp7941x_arduino" taget="_blank">Arduino MCP7941x Library</a> and running the example sketches.
+      </p>
+
+      <p>
+        I'm also aiming to provide code to test other aspects of the board and some working examples of Nanode/Wi-Node usage, but in the meantime i'm collecting useful code snippets and links on my <a href="http://ichilton.github.com/nanode/" target="_blank">Nanode Information Page</a>.
+      </p>
 
       <p>&nbsp;</p>
 
