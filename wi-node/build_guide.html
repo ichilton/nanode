@@ -1,27 +1,3 @@
-<html>
-  <head>
-    <title>Wi-Node - Build Guide</title>
-
-    <link type="text/css" href="/nanode/css/style.css" rel="stylesheet" media="screen" />
-
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1594413-2']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
-  </head>
-
-  <body>
-    <div id="container">
-      <h1>Wi-Node - Build Guide</h1>
 
       <p>
         <a href="/nanode">Return to index page</a>
@@ -127,7 +103,7 @@
         <ul>
           <li><strong>Analogue inputs</strong> - there are three options for these:
             <ul>
-              <li>For standard Arduino analogue inputs (connecting straight to the ATMega328), Replace R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) with wire links. Do not fit RN1 or C12 or C13.</li>
+              <li>For 3V3 analogue inputs (connecting straight to the ATMega328), Replace R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) with wire links. Do not fit RN1 or C12 or C13.</li>
               <li>10.25V Inputs (almost exaxtly 10mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 4K7 resistor network.</li>
               <li>36V Inputs (in roughly 35mV increments per count) - as per above, but fit a 1K resistor network to RN1.</li>
               <li>If you are using the latter two options, you can also fit 2x optional 100nF Ceramic Capacitors - C12, C13 to make a low pass filter on A0 and A1 with the 10K resistor which filters out any noise above about 1600Hz.</li>
@@ -392,15 +368,15 @@
       </p>
 
 
-      <h3>Option 1 - Standard Arduino Inputs:</h3>
+      <h3>Step 21a: Option 1 - 3V3 Analogue Inputs:</h3>
 
       <p style="margin-left: 20px;">
-        For standard Arduino analogue inputs (connecting straight to the ATMega328), Replace R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) with wire links. Do not fit RN1 or C12 or C13.<br />
+        For 3V3 analogue inputs (connecting straight to the ATMega328), Replace R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) with wire links. Do not fit RN1 or C12 or C13.<br />
         <br />
         Photo to follow.
       </p>
 
-      <h3>Option 2 - 10v:</h3>
+      <h3>Step 21a: Option 2 - 10v Analogue Inputs:</h3>
 
       <p style="margin-left: 20px;">
         10.25V Inputs (almost exaxtly 10mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 4K7 resistor network.<br />
@@ -408,16 +384,24 @@
         Photo to follow.
       </p>
 
-      <h3>Option 3 - 16v:</h3>
+      <h3>Step 21a: Option 3 - 16v Analogue Inputs:</h3>
 
       <p style="margin-left: 20px;">
-        36V Inputs (in roughly 35mV increments per count) - as per above, but fit a 1K resistor network to RN1.
+        36V Inputs (in roughly 35mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 1K resistor network.<br />
       </p>
 
-      <h3>Optional Low Pass Filter on A0 and A1:</h3>
+      <h3>Step 21b - Low Pass Filter on A0 and A1 (Optional):</h3>
 
       <p style="margin-left: 20px;">
         If you are using the options 2 or 3 above, you can also fit 2x optional 100nF Ceramic Capacitors - C12, C13 to make a low pass filter on A0 and A1 with the 10K resistor which filters out any noise above about 1600Hz.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 21c - Screw Terminals (Optional):</h3>
+
+      <p style="margin-left: 20px;">
+        Screw terminals can be added for ease of access to the analogue inputs: A0, A1, A2 and A3.
         <br />
         Photo to follow.
       </p>
@@ -453,14 +437,57 @@
         More information and photo to follow.
       </p>
 
+
       <h2>Step 23 - Real Time Clock (Optional)</h2>
 
       <p>
-        Coming Soon.
+        Refer to the information in Step 1 for more about the RTC.<br />
+        <br />
+        There are two options here - a DIP socket on the top of the board or SOIC pads on the bottom of the board. Both Dallas DS1307 and Microchip MCP7941x IC's are supported. I'll cover adding an MPC7941x in the SOIC slot here as that's what's included in the Wi-Node kits if your choose kit includes the RTC option. Either a MCP79410 or an MPC79411 may be used - the only difference is the latter has it's unique id area pre-programmed with a unique ethernet MAC address.
+      </p>
+
+      <h3>Step 23a - MCP7941x IC</h2>
+
+      <p style="margin-left: 20px;">
+        First locate the SOIC pads - they are on the bottom of the board, to the right of the ATMega328. They are labelled DS1307SO8.<br />
+        <br />
+        You should apply a small amount of solder to each pad (on the back of the board). Place the IC over the pads using some tweezers (ensure you note pin 1 to get it the corredct way). Use your soldering iron to heat one of the pins and melt the solder, affixing the IC to the board. If you tack opposite corners first, ensure it's placed correctly and then you can leisurely solder the remaining pins without fear of it moving.
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 23b - 10k Resistors</h2>
+
+      <p style="margin-left: 20px;">
+        Add the 2x 10k resistors (Brown, Black, Black, Red), R3 and R5. They are located at the right hand side of the board, are labelled 10k and are the two directly under the 100R fitted in step 3. There should be 4x 10k labelled spaces left below them.
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 23c - 1N4148 Diode</h2>
+
+      <p style="margin-left: 20px;">
+        Add the 1N4148 Diode, D2. This is to the right of the space for the DIP version. Ensure it goes the correct way round as per the markings. The black bar on the diode should be facing to the bottom of the board.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 23d - 32.768k Crystal</h2>
+
+      <p style="margin-left: 20px;">
+        Add the very small, cylindrical 32.768k RTC crystal. This is under the space for the DIP version and can go either way round.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 23e - 0.22F Super Capacitor (Optional)</h2>
+
+      <p style="margin-left: 20px;">
+        If you didn't already fit it in step 22c and you wish to keep the memory contents of the 23K256 when the power is removed, fit a 0.22F super capacitor. This goes in the bottom middle of the board, under the DS1307 DIL socket (to the right of the ATMega328). Note the positive pin should go to the + symbol on the board (the top).<br />
       </p>
 
 
-      <h2>Step 24 - L293D Motor Driver</h2>
+      <h2>Step 24 - L293D Motor Driver (Optional)</h2>
 
       <p>
         Coming Soon.
@@ -470,7 +497,7 @@
       <h2>Step 25 - Micro SD Slot</h2>
 
       <p>
-        text
+        To Follow.
       </p>
 
 
