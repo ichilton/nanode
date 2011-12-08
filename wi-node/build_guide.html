@@ -378,23 +378,80 @@
         <br />
         Fit 5 separate wire links between the following pins: 1 and 2, 3 and 4, 5 and 6, 7 and 8, 9 and 10.<br />
         <br />
-        Photo Coming Soon.
+        I used some of the component leg cut-off's and bent it over a pair of plyers.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/_6x4hZv449m6M02RUqN0XtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-SQFxCRW-CO0/Tt__CNr8NaI/AAAAAAAAAFk/DrPnqZFLxmc/s640/DSC_0348.JPG" height="426" width="640" /></a>
+        <a href="https://picasaweb.google.com/lh/photo/WSIgLY3i82eANl8Ns3oD8tMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-2GCApUe7yjU/Tt__CorBjMI/AAAAAAAAAFo/EyRzlmNe9js/s640/DSC_0349.JPG" height="426" width="640" /></a>
       </p>
 
 
       <h2>Step 21 - Analogue Inputs (Optional)</h2>
 
       <p>
-        Coming Soon.
+        Refer to the information in Step 1 about the options available for the Analogue inputs.
+      </p>
+
+
+      <h3>Option 1 - Standard Arduino Inputs:</h3>
+
+      <p style="margin-left: 20px;">
+        For standard Arduino analogue inputs (connecting straight to the ATMega328), Replace R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) with wire links. Do not fit RN1 or C12 or C13.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Option 2 - 10v:</h3>
+
+      <p style="margin-left: 20px;">
+        10.25V Inputs (almost exaxtly 10mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 4K7 resistor network.<br />
+        <br/ >
+        Photo to follow.
+      </p>
+
+      <h3>Option 3 - 16v:</h3>
+
+      <p style="margin-left: 20px;">
+        36V Inputs (in roughly 35mV increments per count) - as per above, but fit a 1K resistor network to RN1.
+      </p>
+
+      <h3>Optional Low Pass Filter on A0 and A1:</h3>
+
+      <p style="margin-left: 20px;">
+        If you are using the options 2 or 3 above, you can also fit 2x optional 100nF Ceramic Capacitors - C12, C13 to make a low pass filter on A0 and A1 with the 10K resistor which filters out any noise above about 1600Hz.<br />
+        <br />
+        Photo to follow.
       </p>
 
 
       <h2>Step 22 - 23K256 SRAM (Optional)</h2>
 
       <p>
-        Coming Soon.
+        Refer to the information in Step 1 for more information about the 23K256 SRAM.
       </p>
 
+      <h3>Step 22a - 100k Resistor</h2>
+
+      <p style="margin-left: 20px;">>
+        Fit the 100k Resistor (confirm colours) at the bottom left of the board, behind the programming header.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 22b - 8-Pin DIL Socket</h2>
+
+      <p style="margin-left: 20px;">>
+        Fit the 8-pin DIL socket in the bottom left corner of the board, above the reset switch. Note that the notce (pin 1) should be facing towards the bottom of the board.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 22c - 0.22F Super Capacitor (Optional)</h2>
+
+      <p style="margin-left: 20px;">>
+        If you wish to keep the memory contents of the 23K256 when the power is removed, fit a 0.22F super capacitor. This goes in the bottom middle of the board, under the DS1307 DIL socket (to the right of the ATMega328). Note the positive pin should go to the + symbol on the board (the top).
+        <br />
+        More information and photo to follow.
+      </p>
 
       <h2>Step 23 - Real Time Clock (Optional)</h2>
 
