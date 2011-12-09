@@ -119,6 +119,10 @@
       </p>
 
       <p>
+        Note, there is an error in the above photo - the block of 4 resistors at the bottom right (R8, R9, R2 and R4) are labelled motor, but are actually for the analogue inputs. I'm also missing C12 and C13 labels at the bottom right. New version will follow.
+      </p>
+
+      <p>
         The green highlighted components are those listed above and are needed to build an Arduino like bare Wi-Node board.
       </p>
 
@@ -131,6 +135,8 @@
               <li>10.25V Inputs (almost exaxtly 10mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 4K7 resistor network.</li>
               <li>36V Inputs (in roughly 35mV increments per count) - as per above, but fit a 1K resistor network to RN1.</li>
               <li>If you are using the latter two options, you can also fit 2x optional 100nF Ceramic Capacitors - C12, C13 to make a low pass filter on A0 and A1 with the 10K resistor which filters out any noise above about 1600Hz.</li>
+              <li>It's worth noting that if you use the 10.25V or 36V options, you will not be able to use the analogue pins as digital input/output pins.</li>
+              <li>2x 2-way screw terminals - JP6 (optional)
             </ul>
           </li>
           <li>
@@ -147,11 +153,12 @@
 	      <li>Either a Microchip MCP7941x (includes RTC, SRAM, EEPROM and Unique ID) SOIC or a Maxim/Dallas DS1307 DIP (IC5) or SOIC (U$4). There is an 8 pin DIP slot on the top of the board or an 8 pin SOIC slot on the bottom of the board - only one of these should be populated at a time.</li>
 	      <li>2x 10k Resistors (Brown, Black, Black, Red) - R3 and R5.</li>
 	      <li>1N4148 Diode - D2</li>
+              <li>32.768khz Crystal - Y2</li>
 	      <li>An optional 0.22F super capacitor so the contents of the RTC and SRAM are not lost when the power is removed (shared with the 23K256 SRAM) - C16</li>
 	    </ul>
           </li>
           <li>
-            <strong>L293D Motor Driver</strong> - Provides a quadruple high-current half-H driver - designed to provide bidirectional drive currents. This uses digital 4, 5, 6 (shared with the LED) and 7 as inputs. Digital pin 9 is used to enable outputs 1 & 2 (<strong>therefore this can not be used at the same time as the 23K256 SRAM</strong>) and outputs 3 & 4 are either enabled also by digital pin 9 (if JP4 is shorted between pins 1 & 2) or by digital pin 3 (if JP4 is shorted between pins 2 & 3, which stops the use of the interrupt/wake-up function of the MCP7941x). Using the LS293D also stops the use of the Micro SD card as they share the use of digital pin 4.
+            <strong>L293D Motor Driver</strong> - Provides a quadruple high-current half-H driver - designed to provide bidirectional drive currents. This uses digital 4, 5, 6 (shared with the LED) and 7 as inputs. Digital pin 9 is used to enable outputs 1 & 2 (<strong>therefore this can not be used at the same time as the 23K256 SRAM</strong>) and outputs 3 & 4 are either enabled also by digital pin 9 (if JP4 is shorted between pins 1 & 2) or by digital pin 3 (if JP4 is shorted between pins 2 & 3, which stops the use of the interrupt/wake-up function of the MCP7941x). Using the LS293D also stops the use of the Micro SD card as they share the use of digital pin 4. Use of the L293D requies the addition of a 7805 5v voltage regulator and associated capacitors.
 	    <ul>
 	      <li>L293D - quadruple high-current half-H driver IC - IC4</li>
               <li>100uF Electrolytic Capacitor - C17</li>
@@ -397,15 +404,16 @@
       <p style="margin-left: 20px;">
         For 3V3 analogue inputs (connecting straight to the ATMega328), Replace R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) with wire links. Do not fit RN1 or C12 or C13.<br />
         <br />
-        Photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/rXeA3etvfTMVcG7g4KydVdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-FDMEIM36Pzs/TuFLJHWowBI/AAAAAAAAAOM/ISD2NBbCpMc/s640/DSC_0481.JPG" height="426" width="640" /></a>
+        <a href="https://picasaweb.google.com/lh/photo/uCN85dll9bkR0lHlCJT3cNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-wP95QNCyiD0/TuFLKMzgKTI/AAAAAAAAAOQ/wGBADuxRPNc/s640/DSC_0482.JPG" height="426" width="640" /></a>
       </p>
 
-      <h3>Step 21a: Option 2 - 10v Analogue Inputs:</h3>
+      <h3>Step 21a: Option 2 - 10.25v Analogue Inputs:</h3>
 
       <p style="margin-left: 20px;">
         10.25V Inputs (almost exaxtly 10mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 4K7 resistor network.<br />
         <br/ >
-        Photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/pZOr12-ndZcr5-3KlnYVbNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-o-Ij2vItqZw/TuFLLldZ5zI/AAAAAAAAAOY/LlE3mW1eExU/s640/DSC_0484.JPG" height="426" width="640" /></a>
       </p>
 
       <h3>Step 21a: Option 3 - 16v Analogue Inputs:</h3>
@@ -419,15 +427,15 @@
       <p style="margin-left: 20px;">
         If you are using the options 2 or 3 above, you can also fit 2x optional 100nF Ceramic Capacitors - C12, C13 to make a low pass filter on A0 and A1 with the 10K resistor which filters out any noise above about 1600Hz.<br />
         <br />
-        Photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/g9uz_ywomMei5_KdzKTFF9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-oiR6Z5vPOys/TuFLNzY1API/AAAAAAAAAOg/86z_KPVP6qk/s640/DSC_0486.JPG" height="426" width="640" /></a>
       </p>
 
       <h3>Step 21c - Screw Terminals (Optional):</h3>
 
       <p style="margin-left: 20px;">
-        Screw terminals can be added for ease of access to the analogue inputs: A0, A1, A2 and A3.
+        Screw terminals can be added for ease of access to the analogue inputs: A0, A1, A2 and A3.<br />
         <br />
-        Photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/E9CZnwAJmzUxYYMoFWJTNdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-phtR2wGLZ28/TuFLQXJ9haI/AAAAAAAAAOs/XmVE_s4kV1U/s640/DSC_0489.JPG" height="426" width="640" /></a>
       </p>
 
 
@@ -442,7 +450,7 @@
       <p style="margin-left: 20px;">
         Fit the 100k Resistor (confirm colours) at the bottom left of the board, behind the programming header.<br />
         <br />
-        Photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/9ZutFcFJaILBPxK7waTOUdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-tnq0KSCJZ2g/TuFLROUaRpI/AAAAAAAAAOw/pX8-zRpFyOc/s640/DSC_0490.JPG" height="426" width="640" /></a>
       </p>
 
       <h3>Step 22b - 8-Pin DIL Socket</h2>
@@ -450,15 +458,24 @@
       <p style="margin-left: 20px;">
         Fit the 8-pin DIL socket in the bottom left corner of the board, above the reset switch. Note that the notce (pin 1) should be facing towards the bottom of the board.<br />
         <br />
-        Photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/55H953-KFyS6rb5ElzXlVdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-jvMpJ-Rhwn4/TuFLR-qGlHI/AAAAAAAAAO0/TQ9IR8n8ej0/s640/DSC_0491.JPG" height="426" width="640" /></a>
+        <a href="https://picasaweb.google.com/lh/photo/1_5hhCmsCuZJIJWBesaYrdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-2_r2XdHD2HM/TuFLTAQ7ZXI/AAAAAAAAAO4/0CE7IacxK04/s640/DSC_0492.JPG" height="426" width="640" /></a>
       </p>
 
-      <h3>Step 22c - 0.22F Super Capacitor (Optional)</h2>
+      <h3>Step 22c - Fit 23K256 IC</h2>
 
       <p style="margin-left: 20px;">
-        If you wish to keep the memory contents of the 23K256 when the power is removed, fit a 0.22F super capacitor. This goes in the bottom middle of the board, under the DS1307 DIL socket (to the right of the ATMega328). Note the positive pin should go to the + symbol on the board (the top).<br />
+        Fit the 23K256 IC, ensuring that the notch lines up with the notce on the socket.<br />
         <br />
-        More information and photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/G-OcFPGTrZD_WzryzloqJdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-p_HXU81M3RQ/TuFLT9GYzjI/AAAAAAAAAO8/vVpoz3Lc49w/s640/DSC_0493.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 22d - 0.22F Super Capacitor (Optional)</h2>
+
+      <p style="margin-left: 20px;">
+        If you wish to keep the memory contents of the 23K256 and RTC when the power is removed, fit a 0.22F super capacitor. This goes in the bottom middle of the board, under the DS1307 DIL socket (to the right of the ATMega328). It is supplied unpolarised and can be fitted either way. I usually put the flat side to negative and have the arrows pointing to positive.<br />
+        <br />
+        I'm going to fit this after the RTC components - see step 23e for photo if you are not doing the RTC and want to fit the super capacitor now.
       </p>
 
 
@@ -475,17 +492,19 @@
       <p style="margin-left: 20px;">
         First locate the SOIC pads - they are on the bottom of the board, to the right of the ATMega328. They are labelled DS1307SO8.<br />
         <br />
-        You should apply a small amount of solder to each pad (on the back of the board). Place the IC over the pads using some tweezers (ensure you note pin 1 to get it the corredct way). Use your soldering iron to heat one of the pins and melt the solder, affixing the IC to the board. If you tack opposite corners first, ensure it's placed correctly and then you can leisurely solder the remaining pins without fear of it moving.
+        <a href="https://picasaweb.google.com/lh/photo/ZNqfV8H7m8lLWiE76q2D7NMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-m7wWUCUqAMA/TuFLUnW8ocI/AAAAAAAAAPA/hANEC8rrtQ0/s640/DSC_0494.JPG" height="426" width="640" /></a><br />
         <br />
-        Photo to follow.
+        You should apply a small amount of solder to each pad (on the back of the board). Place the IC over the pads using some tweezers (ensure you note pin 1 to get it the corredct way). Use your soldering iron to heat one of the pins and melt the solder, affixing the IC to the board. If you tack opposite corners first, ensure it's placed correctly and then you can leisurely solder the remaining pins without fear of it moving.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/pSRqsu_T58kzZzVyQPora9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-ZlreFqJOoN8/TuFLWA45d0I/AAAAAAAAAPI/uGyd0vywKhU/s640/DSC_0496.JPG" height="426" width="640" /></a>
       </p>
 
       <h3>Step 23b - 10k Resistors</h2>
 
       <p style="margin-left: 20px;">
-        Add the 2x 10k resistors (Brown, Black, Black, Red), R3 and R5. They are located at the right hand side of the board, are labelled 10k and are the two directly under the 100R fitted in step 3. There should be 4x 10k labelled spaces left below them.
+        Add the 2x 10k resistors (Brown, Black, Black, Red), R3 and R5. They are located at the right hand side of the board, are labelled 10k and are the two directly under the 100R fitted in step 3. There should be 4x 10k labelled spaces left below them.<br />
         <br />
-        Photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/KDznvub9EAzHtq6S7beTDNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-NUZflv2ghc4/TuFLXW39g1I/AAAAAAAAAPQ/EbNxV4qfJSQ/s640/DSC_0498.JPG" height="426" width="640" /></a>
       </p>
 
       <h3>Step 23c - 1N4148 Diode</h2>
@@ -493,7 +512,7 @@
       <p style="margin-left: 20px;">
         Add the 1N4148 Diode, D2. This is to the right of the space for the DIP version. Ensure it goes the correct way round as per the markings. The black bar on the diode should be facing to the bottom of the board.<br />
         <br />
-        Photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/PYxBjkjF3hkW-ois8fTIutMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-0Msst2m4cTg/TuFLYA7yimI/AAAAAAAAAPU/WmxqipOsGro/s640/DSC_0499.JPG" height="426" width="640" /></a>
       </p>
 
       <h3>Step 23d - 32.768k Crystal</h2>
@@ -501,20 +520,76 @@
       <p style="margin-left: 20px;">
         Add the very small, cylindrical 32.768k RTC crystal. This is under the space for the DIP version and can go either way round.<br />
         <br />
-        Photo to follow.
+        <a href="https://picasaweb.google.com/lh/photo/Ydrg0Z1AuJzZiLkJaEoPtNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-3LZS7sj5tBE/TuFLYycTSqI/AAAAAAAAAPY/uPJbRn5AEXs/s640/DSC_0500.JPG" height="426" width="640" /></a>
       </p>
 
       <h3>Step 23e - 0.22F Super Capacitor (Optional)</h2>
 
       <p style="margin-left: 20px;">
-        If you didn't already fit it in step 22c and you wish to keep the memory contents of the 23K256 when the power is removed, fit a 0.22F super capacitor. This goes in the bottom middle of the board, under the DS1307 DIL socket (to the right of the ATMega328). Note the positive pin should go to the + symbol on the board (the top).<br />
+        If you wish to keep the memory contents of the 23K256 and RTC when the power is removed, fit a 0.22F super capacitor. This goes in the bottom middle of the board, under the DS1307 DIL socket (to the right of the ATMega328). It is supplied unpolarised and can be fitted either way. I usually put the flat side to negative and have the arrows pointing to positive.<br />
+        <br /> 
+        <a href="https://picasaweb.google.com/lh/photo/sE3idzNl6Vi6wG-zekgX0NMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-G-qzvld3i3I/TuFLZk-v4jI/AAAAAAAAAPc/JW1237THPqo/s640/DSC_0501.JPG" height="426" width="640" /></a>
       </p>
 
 
       <h2>Step 24 - L293D Motor Driver (Optional)</h2>
 
-      <p>
-        Coming Soon.
+      <p>Refer to the information in Step 1 for more about the L293D.</p>
+
+      <h3>Step 24a - DIL Socket</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the 16-pin DIL socket. It goes to the right of the 16Mhz crystal with the notch (indicating pin 1) downwards.
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 24b - L293D IC</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the L293D IC into the socket.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 24b - 100nF Ceramic Capacitors</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the 5x 100nF ceramic capacitors, C6, C7, C8, C9 and C11.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 24c - 100uF Electrolytic Capacitor</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the 100uF Electrolytic, C17.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 24d - 7805 5v Voltage Regulator</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the 7805 Voltage Regulator.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 24e - Pin selection to enable outputs 3&4</h3>
+
+      <p style="margin-left: 20px;">
+        The enable pin for outputs 3&4 can be changed between digital 9 so it will be enabled at the same time as outputs 1&2 and digital 3 where outputs 3&4 can be controlled separately at the expensve of the interrupt / wake up alarm from the RTC.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 24f - Screw Terminals (optional)</h3>
+
+      <p style="margin-left: 20px;">
+        2x 3-way screw terminals can be fitted to provide easy access to GND, VIN and the four LS293D outputs.<br />
+        <br />
+        Photo to follow.
       </p>
 
 
