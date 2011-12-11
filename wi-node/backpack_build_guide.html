@@ -21,7 +21,7 @@
 
   <body>
     <div id="container">
-      <h1>Wi-Node Backpack - Build Guide</h1>
+      <h1>Wi-Node Backpack - Build Guide (Work In Progress)</h1>
 
       <p>
         <a href="/nanode">Return to index page</a>
@@ -55,7 +55,7 @@ l - #nanode on irc.freenode.net.
           <li><a href="http://solderpad.com/monsonite/winode/" target="_blank">Schematic, Board etc on Solderpad</a></li>
           <li><a href="http://ichilton.github.com/nanode/wi-node/pins.html" target="_blank">Pins List</a></li>
         </ul>
-        You can view an <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBuild" target="_blank">album with all of the photos here</a> - they will be labelled with which step they relate to. You can click on each of the images below to view it on Picasa and view a bigger version or zoom in.<br />
+        You can view an <a href="https://picasaweb.google.com/113068889724287585425/WiNodeBackpackBuildGuide" target="_blank">album with all of the photos here</a> - they will be labelled with which step they relate to. You can click on each of the images below to view it on Picasa and view a bigger version or zoom in.<br />
         <br />
         Building a Wi-Node Backpack is just a case of replicating the steps shown in the following picture sequence - no real electronics experience needed - just basic soldering skills.<br />
         <br />
@@ -73,40 +73,487 @@ l - #nanode on irc.freenode.net.
         It's recommended you read through the whole of this guide and familiarise yourself with the steps before you start the actual build.
       </p>
 
-      <p style="font-size: 22px;"><strong>We're still waiting for components to be able to do this guide - this is just a placeholder for now.</strong></p>
 
-      <p>In the meantime, here are some very rough notes on how to build a Wi-Node Backpack. Real build guide to follow soon.</p>
+      <h2>Step 1 - Identify Components and Kit Contents</h2>
 
-      <pre>
-1.  Solder the RFM12 module in place first
-2.  Solder the 10K resistor network (6 pins marked 103) into position marked 4K7 (yes - an error in the screenprint). The spot on the res network goes closest to the RFM12 module.
-3. Add the 3V3 regulator and the 10uF electrolytic and the blue 100nF immediately behind the 3V3 regulator.
-4. Fit the reset switch.
-5. Fit the 100R resistor on the RHS of the pcb - close to the 7805 reg footprint.
-6. Fit the LED - with the long anode lead closest to the top edge of the pcb.
-7.  Solder the 5 off 4K7 resistors into the 10 way SIL footprint  next to the shield connectors.  These resistors along with the 10K network  divide the 5V SPI signals  from the Nanode 5/Arduino down to 3V3 for the RFM12.
-8  Finally break the SIL pin-strip into 2 x 8 and 2 x 6. Push these into th shiled connectors of an Arduino/Nanode 5 and use this as a jig to solder to the W10 pcb.
+      <p>
+        Layout and identify the components from the kit.<br />
+        <br />
+        The exact kit contents will vary depending on which kit you bought and any optional extras purchased.<br />
+        <br />
+        Here are the components required to build the basic backpack with wireless:<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/vad_Vo-fzjwyK5pVOBKCw9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-lItSz05YpfE/TuE34KQBZVI/AAAAAAAAAGU/ftQ68-4I7gs/s640/DSC_0354.JPG" height="426" width="640" /></a>
+      </p>
 
-That completes the minimum build. You should have the following fitted
-RFM12
-1 x 10K  SIL network 5 resistors commoned
-3V3 regulator
-1 x 100nF ceramic capacitor (blue)
-1 x 10uF electrolytic capacitor
-1 x 100R resistor
-1 x green LED
-5 x 4K7 resistor
-reset switch
-2 x 8 pin long pin headers
-2 x 6 pin long pin headers
-82mm (cut length) aerial
+      <p>
+        Pictured above is:<br />
+        <ul>
+          <li>The Wi-Node PCB</li>
+          <li>RFM12B Radio Module</li>
+          <li>Antenna for the RFM12B</li>
+          <li>Switch - S1: for resetting the board</li>
+          <li>MCP1702-3302 - IC2: 3.3v voltage regulator</li>
+          <li>3mm Green LED - LED1</li>
+          <li>100nF Ceramic Capacitor - C4</li>
+          <li>10uF Electrolytic Capacitor - C5</li>
+          <li>10k SIL resistor network (5 resistors with common connection)</li>
+          <li>5x 4k7 1% Resistors (Yellow, Purple, Black, Brown) - instead of RN4</li>
+          <li>100R Resistor (Brown, Black, Black, Black) - R10</li>
+	  <li>2 x 8 pin long pin headers</li>
+	  <li>2 x 6 pin long pin headers</li>
+        </ul>
+      </p>
 
-OK the W10 kits include extra parts that allow you to build the options onto the pcb. These options are:
+      <p style="margin-top: 50px;">
+        On top of those, additional components can be added to provide additional functions - here are all the parts required to build a full backpack with all the options:<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/jnFq2I8Sav1KPwFcHAIPWNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-LmS692R6wYM/TuE35eslbOI/AAAAAAAAAGc/MMIMa7LgFJg/s640/DSC_0356.JPG" height="426" width="640" /></a>
+      </p>
 
-1. 32K x 8 SRAM
-2. MCP79410 Real Time Clock
-3. Motor Driver IC  L293D equivalent
-      </pre>
+      <p>
+        These are the optional functions and the components required for each:
+        <ul>
+          <li><strong>Analogue inputs</strong> - there are three options for these:
+            <ul>
+              <li>For 3V3 analogue inputs (connecting straight to the ATMega328), Replace R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) with wire links. Do not fit RN1 or C12 or C13.</li>
+              <li>10.25V Inputs (almost exaxtly 10mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 4K7 resistor network.</li>
+              <li>36V Inputs (in roughly 35mV increments per count) - as per above, but fit a 1K resistor network to RN1.</li>
+              <li>If you are using the latter two options, you can also fit 2x optional 100nF Ceramic Capacitors - C12, C13 to make a low pass filter on A0 and A1 with the 10K resistor which filters out any noise above about 1600Hz.</li>
+              <li>It's worth noting that if you use the 10.25V or 36V options, you will not be able to use the analogue pins as digital input/output pins.</li>
+              <li>2x 2-way screw terminals - JP6 (optional)
+            </ul>
+          </li>
+          <li>
+            <strong>23K256 SPI SRAM</strong> - provides extra SRAM for additional data storage. This is accessed using the SPI bus and digital pin 9 as a slave select. <strong>Please note that this can not be used at the same time as the L293D as they share the use of digital pin 9</strong>:
+            <ul>
+              <li>23K256 DIP SRAM IC - IC3</li>
+              <li>100k Resistor - R11</li>
+              <li>An optional 0.22F super capacitor so the contents of the RTC and SRAM are not lost when the power is removed (shared with the RTC) - C16</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Real Time Clock</strong> - this provides a real time clock using the I2C bus (Analogue pins 4 & 5) with the interrupt/wake up alarm on digital pin 3:
+            <ul>
+              <li>Either a Microchip MCP7941x (includes RTC, SRAM, EEPROM and Unique ID) SOIC or a Maxim/Dallas DS1307 DIP (IC5) or SOIC (U$4). There is an 8 pin DIP slot on the top of the board or an 8 pin SOIC slot on the bottom of the board - only one of these should be populated at a time.</li>
+              <li>2x 10k Resistors (Brown, Black, Black, Red) - R3 and R5.</li>
+              <li>1N4148 Diode - D2</li>
+              <li>32.768khz Crystal - Y2</li>
+              <li>An optional 0.22F super capacitor so the contents of the RTC and SRAM are not lost when the power is removed (shared with the 23K256 SRAM) - C16</li>
+            </ul>
+          </li>
+          <li>
+            <strong>L293D Motor Driver</strong> - Provides a quadruple high-current half-H driver - designed to provide bidirectional drive currents. This uses digital 4, 5, 6 (shared with the LED) and 7 as inputs. Digital pin 9 is used to enable outputs 1 & 2 (<strong>therefore this can not be used at the same time as the 23K256 SRAM</strong>) and outputs 3 & 4 are either enabled also by digital pin 9 (if JP4 is shorted between pins 1 & 2) or by digital pin 3 (if JP4 is shorted between pins 2 & 3, which stops the use of the interrupt/wake-up function of the MCP7941x). Using the LS293D also stops the use of the Micro SD card as they share the use of digital pin 4. Use of the L293D requies the addition of a 7805 5v voltage regulator and associated capacitors.
+            <ul>
+              <li>L293D - quadruple high-current half-H driver IC - IC4</li>
+              <li>100uF Electrolytic Capacitor - C17</li>
+              <li>5x 100nF Ceramic Capacitors - C6, C7, C8, C9, C11</li>
+              <li>7805 5v Voltage Regulator - IC6</li>
+              <li>2x 3-way screw terminals - JP3 (optional)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Micro SD Card Slot</strong> - allows use of a micro sd card for storate. Uses the SPI bus and digital pin 4 as a slave select pin (<strong>Please note that this can not be used at the same time as the L293D as they share the use of digital pin 4</strong>):
+            <ul>
+              <li>Micro SD Card Holder</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Power & Serial Socket</strong>:
+            <ul>
+              <li>A 4-pin jack socket - X1 is provided to supply GND, VIN, RX and TX. It's at the top right-hand side of the board and labelled on the board as 1503_10. This is not covered in the guide as it's not included in any of the kits and left as an optional extra for advanced users.</li>
+            </ul>
+          </li>
+        </ul>
+      </p>
+
+      <p>
+        It's worth noting the operation of the 3 resistor networks:<br />
+        <ul>
+          <li>RN1 (at the right hand side of the board next to the RTC, labelled 3k3) is for the analogue pins, A0, A2, A2 and A3 and should be fitted if you wish to use these pins as high voltage inputs. For normal use it can be removed and R2, R4, R8 and R9 (at the right hand side of the board, labelled 10k) replaced with wire links.</li>
+          <li>RN2 (at the left hand side of the board next to the micro SD slot, incorrectly labelled 4K7) is for level conversion when using the board as a shield/backpack for an existing Arduino/Nanode. When using the board as a standalone node, this should not be fitted (see separate <a href="build_guide.html">build guide for a standalone Wi-Node</a>. When using the board as a shield, a 10K resistor network should be fitted.</li>
+          <li>RN4 (at the top of the board, to the right of the RFM12B and above the ATMega328) is for level conversion when using the board as a shield/backpack for an existing Arduino/Nanode. A 4k7 resistor network or 5x separate 4k7 resistors should be fitted when using the board as a shield/backpack. When using the board as a standalone node, these should just be populated with wire links on pins 1->2, 3->4, 5->6, 7->8, 9->10.</li>
+        </ul>
+      </p>
+
+      <p style="margin-top: 30px;">
+        Ok, we're ready to start. Here is the PCB ready:<br />
+        <br />
+<a href="https://picasaweb.google.com/lh/photo/VAALfhr4IpRIkKPQVOTpNtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-vIbKyj0DLLY/TuE39ptHZVI/AAAAAAAAAG0/eOMDKvVW6EQ/s640/DSC_0363.JPG" height="426" width="640" /></a><br />
+        <br />
+        A Nanode 5 or Arduino board will be useful later for aligning and holding the pins:<br />
+        <br />
+<a href="https://picasaweb.google.com/lh/photo/Fkd9ONJ_gknB-7bQAnFm39MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-YHqIgAEDVAI/TuE4DCMDoRI/AAAAAAAAAHQ/ypAETvjrRlA/s640/DSC_0370.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 2 - 10k Resistor Network</h2>
+
+      <p>
+        Fit the 10k resistor network marked 102G in it's slot to the right of the Micro SD Card slot. Ensure that the spot marking pin 1 goes to the top (nearest the RFM12B)<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/CPj4U-K2pgMs_BrK6a68RNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-591vf96DPkE/TuE4DxdYbnI/AAAAAAAAAHU/R-HElwh_-xM/s640/DSC_0371.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 3 - 100nF Ceramic Capacitor</h2>
+
+      <p>
+        Add the 100nF ceramic capacitor in the bottom slot to the right of the 23K256. It's blue and marked 104.<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/qCXn9cmLgvhvnd5F1NnIoNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-GLxrS2uXux0/TuE4FAqKj9I/AAAAAAAAAHY/71w2rSu12S8/s640/DSC_0372.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 4 - MCP1702 3.3v Voltage Regulator</h2>
+
+      <p>
+        Add the MCP1702 3.3v voltage regulator - it's at the bottom left next to the reset switch. The flat edge goes towards the bottom of the board. You should just need to bend the middle pin outwards slightly and insert it into the holes.<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/ROesVy2HvVY0fXkWvuYodtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-oKJbQuLZCFo/TuE4G3DJ8gI/AAAAAAAAAHg/aqaLrI_s9QA/s640/DSC_0374.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 5 - Reset Switch</h2>
+
+      <p>
+        Add the reset switch at the bottom left of the board..<br />
+        <br />
+<a href="https://picasaweb.google.com/lh/photo/6WC32ycha_u4F6p0bb2KE9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-b5JCJUajD1o/TuE4IKjzprI/AAAAAAAAAHo/1DuMnLKLKRo/s640/DSC_0376.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 6 - 10uF Electrolytic Capacitor</h2>
+
+      <p>
+        Fit the 10uF Electrolytic capacitor just above the MCP1702 on the left hand side of the board. Ensure it is fitted the correct way round. The long leg needs to go to the + symbol on the legend and you will be able to see the white side on the photo (which goes towards the left of the board).<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/KcTdnuZmNqCvhvMpnEcwN9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-WvrdGdJrh6o/TuE4I0DEGEI/AAAAAAAAAHs/uy_xftB-37M/s640/DSC_0377.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 7 - 100R Resistor</h2>
+
+      <p>
+        Add the 100R resistor - it's colour code is: Brown, Black, Black, Black. It's at the right hand side of the board at the top of the row of resistors.<br />
+        <br />
+<a href="https://picasaweb.google.com/lh/photo/WbJD95tKHgqaGyxql5NoItMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-eo3_yDQKexk/TuE4JoEaQDI/AAAAAAAAAHw/vsQJadOJBK8/s640/DSC_0378.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 8 - LED</h2>
+
+      <p>
+        Add the green LED - it's at the top right hand side of the board, next to pin 8 of the L293D. The long leg should go to the top of the board and the shot leg and flat edge should go towards the bottom of the board.<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/odimIr4aRcZVll2iTubDndMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-SrLE8Y1GTFU/TuE4KQpcICI/AAAAAAAAAH0/JHRuAVzDr4U/s640/DSC_0379.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 9 - 4k7 Resistors</h2>
+
+      <p>
+        Add five 4k7 resistors instead of the resistor network RN4 at the top of the board. Their colour code is: Yellow, Purple, Black, Brown.<br />
+        <br />
+<a href="https://picasaweb.google.com/lh/photo/TqeyMBNoGOXdMKNlwTs0rtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-TRHTVs2F68E/TuE4MJ0DQFI/AAAAAAAAAH8/p0Ius8_NvOc/s640/DSC_0381.JPG" height="426" width="640" /></a><br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/DghLgL7dz9E6qeRzGVQpjtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-HgHOyuukM04/TuE4On-LGhI/AAAAAAAAAIE/7TkbzcURAyw/s640/DSC_0383.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 10 - Pins</h2>
+
+      <p>
+        Add the header pins to be able to connect this into a Nanode or Arduino board. The easiest way to do this is to use an existing board to hold the pins in place, with the board on top, while soldering. Insert the pins part way into the Arduino/Nanode board and place the Wi-Node PCB on top (components upwards) and solder when you are sure they are pushed in fully and straight.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/sst5fZQ1Nq1A01ivicqj2tMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-w3xBKPVNMz4/TuE4P_gqb3I/AAAAAAAAAIM/sLtnMljsImo/s640/DSC_0385.JPG" height="426" width="640" /></a><br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/jDkkvy6IBCUbh8iQ9V9NfNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-NsW3x5xCwRA/TuE4QpA9OaI/AAAAAAAAAIQ/HVZQiMOuDEc/s640/DSC_0386.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 11 - Voltage Check</h2>
+
+      <p>
+        While the backpack is on top of the existing Nanode or Arduino board, power the board up in the usual way (programming header, USB or external power). If you use a multimeter to measure the voltage between the RFM12B pads labelled GND and VCC, you should see very close to 3.3v.<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/szv7LK0BbG23kDAS6EZJQ9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-i21lm6-rGdk/TuE4Ww1wHAI/AAAAAAAAAI0/iP12e9Gzcdo/s640/DSC_0395.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <strong>WARNING: Only proceed if all of your voltage readings from above are correct - if they weren't then you have a problem with your build.</strong>
+
+
+      <h2>Step 12 - RFM12B Radio Module</h2>
+
+      <p>
+        Now we know that the voltage is correct, we can fit the RFM12B radio module. Place the module on the pads (observe the orientation - crystal to the outside) and solder each pad onto the board from above. It's worth doing opposite corners first to hold it in place, before doing the remaining pads..<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/vxT-eQ0SUKaGfmogOyiDudMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-aP-7fUIVEQ8/TuE4ZjT8UHI/AAAAAAAAAJE/cIeB50wLsZ0/s640/DSC_0399.JPG" height="426" width="640" /></a><br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/wl3stVLksqn0vhAEvE4VxNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-mNqOrPVBP8M/TuE4aHyzaiI/AAAAAAAAAJI/XK2tmCaAWMQ/s640/DSC_0400.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 13 - RFM12B Antenna</h2>
+
+      <p>
+        You now need to add an antenna for the RFM12B - this is a piece of wire of approx 82mm, which will act as a quarter wave for the 868Mhz RF.<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/ERh8J0M-BAQ79-GKtpiO_dMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-OzWR2xAaZbc/TuE4cTrJQmI/AAAAAAAAAJU/-C5gxcy5CLs/s640/DSC_0403.JPG" height="426" width="640" /></a><br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/M6-BGoeOC804fGbdPqNXZNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-0PfbunueU-k/TuE4c1VELKI/AAAAAAAAAJY/WBR2jRtRT0A/s640/DSC_0404.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Completed Base Backpack</h2>
+
+      <p>
+        Congratulations, you have completed the base backpack board to add the RFM12B to a Nanode 5 or Arduino board.<br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/EsbkSk0jvDboBfKOa_ljitMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-Jyym-S88mn4/TuE4f7DwZDI/AAAAAAAAAJo/2UicNA_nSO8/s640/DSC_0408.JPG" height="426" width="640" /></a><br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/lCkLiilBMkuqCAlhiNPqjNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-84z6IOtaw1U/TuE4oraOXUI/AAAAAAAAAKc/DDjN91RO7vg/s640/DSC_0421.JPG" height="426" width="640" /></a><br />
+        <br />
+	<a href="https://picasaweb.google.com/lh/photo/uSW6eRiTqFhwU-wuscbyM9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-rDgpL-kB23s/TuE4fDtL3aI/AAAAAAAAAJk/SwKbjw20pGM/s640/DSC_0407.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <p>We'll now look at the different optional steps you may wish to consider.</p>
+
+
+      <h2>Step 14 - Analogue Inputs (Optional)</h2>
+
+      <p>
+        Refer to the information in Step 1 about the options available for the Analogue inputs.
+      </p>
+
+
+      <h3>Step 14a: Option 1 - 3V3 Analogue Inputs:</h3>
+
+      <p style="margin-left: 20px;">
+        For 3V3 analogue inputs (connecting straight to the ATMega328), Replace R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) with wire links. Do not fit RN1 or C12 or C13.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/4NSIENDdCHEyNuHf_U6c3tMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-JZlGI2VFbwI/TuE4u_x-RZI/AAAAAAAAALA/5Zw9mZjaFto/s640/DSC_0431.JPG" height="426" width="640" /></a><br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/b3VNOUc4WurhoEKZ3eU7n9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-piBtWNhdvLY/TuE4vuyG76I/AAAAAAAAALE/unihDAWvSr4/s640/DSC_0432.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 14a: Option 2 - 10.25v Analogue Inputs:</h3>
+
+      <p style="margin-left: 20px;">
+        10.25V Inputs (almost exaxtly 10mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 4K7 resistor network.<br />
+        <br/ >
+        <strong>PLEASE NOTE: There is a mistake in this photo (and therefore the the photos following it) - the four resistors added need to be moved down 2 slots so they are in the bottom 4 spaces, with 2 spaces above it for the RTC resistors. This will be fixed in a future re-build.</strong><br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/o80BrQNxgUtSTWHidZBOGNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-uKZqdzz99vE/TuE4x2-UVDI/AAAAAAAAALQ/ar7nZR4gsCA/s640/DSC_0435.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 14a: Option 3 - 16v Analogue Inputs:</h3>
+
+      <p style="margin-left: 20px;">
+        36V Inputs (in roughly 35mV increments per count) - R8, R9, R2 and R4 (bottom right of the board behind the screw terminals, marked 10k) are to be fitted with 10k resistors and RN1 (to the left of those resistors) to be fitted with a 1K resistor network.<br />
+      </p>
+
+      <h3>Step 14b - Low Pass Filter on A0 and A1 (Optional):</h3>
+
+      <p style="margin-left: 20px;">
+        If you are using the options 2 or 3 above, you can also fit 2x optional 100nF Ceramic Capacitors - C12, C13 to make a low pass filter on A0 and A1 with the 10K resistor which filters out any noise above about 1600Hz.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/ypJsG7PuRd84MWv6zwWSSNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-g6SXnmdffAg/TuE4zdOgzEI/AAAAAAAAALY/i3oZc30_TUM/s640/DSC_0437.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 14c - Screw Terminals (Optional):</h3>
+
+      <p style="margin-left: 20px;">
+        Screw terminals can be added for ease of access to the analogue inputs: A0, A1, A2 and A3.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/xfO0WbeTGn7tLvJNpSb1MtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-yrDTt0fsEfo/TuE40K6wXrI/AAAAAAAAALc/jBdvrtTCOQA/s640/DSC_0438.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 15 - 23K256 SRAM (Optional)</h2>
+
+      <p>
+        Refer to the information in Step 1 for more information about the 23K256 SRAM.
+      </p>
+
+      <h3>Step 15a - 100k Resistor</h2>
+
+      <p style="margin-left: 20px;">
+        Fit the 100k Resistor (confirm colours) at the bottom left of the board, behind the programming header.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/0kRn9eC8WTuA8QuzXyM4atMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-n3LxyONoRyU/TuE40-3H4XI/AAAAAAAAALg/bjPgbvQzONk/s640/DSC_0439.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 15b - 8-Pin DIL Socket</h2>
+
+      <p style="margin-left: 20px;">
+        Fit the 8-pin DIL socket in the bottom left corner of the board, above the reset switch. Note that the notce (pin 1) should be facing towards the bottom of the board.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/W4SmPaxBjqg2SdytEXjOLtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-_jznU0meXco/TuE42TqBRGI/AAAAAAAAALo/3gow-4AIlQQ/s640/DSC_0441.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 15c - Fit 23K256 IC</h2>
+
+      <p style="margin-left: 20px;">
+        Fit the 23K256 IC, ensuring that the notch lines up with the notce on the socket.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/pKAabI5IeQgHqmMZhuTV_NMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-g5kSHYpOS9A/TuE43g74SwI/AAAAAAAAALs/4PCHFEUWF_w/s640/DSC_0442.JPG" height="426" width="640" /></a><br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/I05UqCEs5ChNxtGK2ZXJUNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-hzGZVWOAv_Y/TuE44U_ShlI/AAAAAAAAALw/rPLJrovvCFM/s640/DSC_0443.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 15d - 0.22F Super Capacitor (Optional)</h2>
+
+      <p style="margin-left: 20px;">
+        If you wish to keep the memory contents of the 23K256 and RTC when the power is removed, fit a 0.22F super capacitor. This goes in the bottom middle of the board, under the DS1307 DIL socket (to the right of the ATMega328). It is supplied unpolarised and can be fitted either way. I usually put the flat side to negative and have the arrows pointing to positive.<br />
+        <br />
+        I'm going to fit this after the RTC components - see step 16e for photo if you are not doing the RTC and want to fit the super capacitor now.
+      </p>
+
+
+      <h2>Step 16 - Real Time Clock (Optional)</h2>
+
+      <p>
+        Refer to the information in Step 1 for more about the RTC.<br />
+        <br />
+        There are two options here - a DIP socket on the top of the board or SOIC pads on the bottom of the board. Both Dallas DS1307 and Microchip MCP7941x IC's are supported. I'll cover adding an MPC7941x in the SOIC slot here as that's what's included in the Wi-Node kits if your choose kit includes the RTC option. Either a MCP79410 or an MPC79411 may be used - the only difference is the latter has it's unique id area pre-programmed with a unique ethernet MAC address.
+      </p>
+
+      <h3>Step 16a - MCP7941x IC</h2>
+
+      <p style="margin-left: 20px;">
+        First locate the SOIC pads - they are on the bottom of the board, to the right of the ATMega328. They are labelled DS1307SO8.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/afyq1heJIthye9I77CfiTNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-x110cGtBBJM/TuE46VQ72XI/AAAAAAAAAL8/oqLls6LzQQ4/s640/DSC_0446.JPG" height="426" width="640" /></a>
+        <br />
+        You should apply a small amount of solder to each pad (on the back of the board). Place the IC over the pads using some tweezers (ensure you note pin 1 to get it the corredct way). Use your soldering iron to heat one of the pins and melt the solder, affixing the IC to the board. If you tack opposite corners first, ensure it's placed correctly and then you can leisurely solder the remaining pins without fear of it moving.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/uYwyDRbTZQF5gQbMpgL2VNMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-SWITdiweN5E/TuE47JnMCHI/AAAAAAAAAMA/XtSNrgD4BEA/s640/DSC_0447.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 16b - 10k Resistors</h2>
+
+      <p style="margin-left: 20px;">
+        Add the 2x 10k resistors (Brown, Black, Black, Red), R3 and R5. They are located at the right hand side of the board, are labelled 10k and are the two directly under the 100R fitted in step 3. There should be 4x 10k labelled spaces left below them.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/WiLaemdBPxdHvvQzW_Tow9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-ROEoMXx6U60/TuE49_eJ0dI/AAAAAAAAAMQ/tOzqegZE38E/s640/DSC_0451.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 16c - 1N4148 Diode</h2>
+
+      <p style="margin-left: 20px;">
+        Add the 1N4148 Diode, D2. This is to the right of the space for the DIP version. Ensure it goes the correct way round as per the markings. The black bar on the diode should be facing to the bottom of the board.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/27-ZhAFWcx4vtbhYL2gdENMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-CpdgacTo2Y0/TuE4-j-TvmI/AAAAAAAAAMU/RO7gOrX7aNc/s640/DSC_0452.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 16d - 32.768k Crystal</h2>
+
+      <p style="margin-left: 20px;">
+        Add the very small, cylindrical 32.768k RTC crystal. This is under the space for the DIP version and can go either way round.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/uXeCmjC6sbWswXOghdH9_NMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/--6EwCbeYyp8/TuE5AAfzwbI/AAAAAAAAAMc/wCk5fKap-88/s640/DSC_0454.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 16e - 0.22F Super Capacitor (Optional)</h2>
+
+      <p style="margin-left: 20px;">
+        If you wish to keep the memory contents of the 23K256 and RTC when the power is removed, fit a 0.22F super capacitor. This goes in the bottom middle of the board, under the DS1307 DIL socket (to the right of the ATMega328). It is supplied unpolarised and can be fitted either way. I usually put the flat side to negative and have the arrows pointing to positive.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/2en7bGcfMvHPibrPYhUA19MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-4URghN79wds/TuE5A71GQKI/AAAAAAAAAMg/MYiGjPCCeT8/s640/DSC_0455.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h2>Step 17 - L293D Motor Driver (Optional)</h2>
+
+      <p>Refer to the information in Step 1 for more about the L293D.</p>
+
+      <h3>Step 17a - DIL Socket</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the 16-pin DIL socket. It goes to the right of the 16Mhz crystal with the notch (indicating pin 1) downwards.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/luR93acvZApgf56R48CZ5dMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-4NYxJadz8Io/TuE5Bg8AWNI/AAAAAAAAAMk/OCXDLw_P4mY/s640/DSC_0456.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 17b - 100nF Ceramic Capacitors</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the 5x 100nF ceramic capacitors, C6, C7, C8, C9 and C11.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/JHriuem19BgEJjAbsr9J3dMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh4.googleusercontent.com/-lqAcoSTuZfo/TuE5D17HLHI/AAAAAAAAAMw/nXOoXLQkIuM/s640/DSC_0459.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 17c - 100uF Electrolytic Capacitor</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the 100uF Electrolytic, C17.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/nZ8iDBCx_YAFm-IuTfenw9MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-lf_VRXRd9zM/TuE5F0mtMQI/AAAAAAAAAM8/h6_S49Dr-6U/s640/DSC_0462.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 17d - 7805 5v Voltage Regulator</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the 7805 Voltage Regulator.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/WDufw5sZtdz-jT_eAG75JdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh5.googleusercontent.com/-7lSpP1f_UvY/TuE5GsvhqLI/AAAAAAAAANA/6whlODulbAw/s640/DSC_0463.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 17e - Pin selection to enable outputs 3&4</h3>
+
+      <p style="margin-left: 20px;">
+        The enable pin for outputs 3&4 can be changed between digital 9 so it will be enabled at the same time as outputs 1&2 and digital 3 where outputs 3&4 can be controlled separately at the expensve of the interrupt / wake up alarm from the RTC.<br />
+        <br />
+        Photo to follow.
+      </p>
+
+      <h3>Step 17f - Screw Terminals (optional)</h3>
+
+      <p style="margin-left: 20px;">
+        2x 3-way screw terminals can be fitted to provide easy access to GND, VIN and the four LS293D outputs.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/8s-dehUY0rHCdY5ht-3UNtMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-cSGhwNNduhM/TuE5HYyUbJI/AAAAAAAAANE/timYFKLPUWs/s640/DSC_0464.JPG" height="426" width="640" /></a>
+      </p>
+
+
+      <h3>Step 17g - L293D IC</h3>
+
+      <p style="margin-left: 20px;">
+        Fit the L293D IC into the socket.<br />
+        <br />
+        <a href="https://picasaweb.google.com/lh/photo/DlCQYV4a5_OcCxgnNxjZzdMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh6.googleusercontent.com/-tyTC3WFusWw/TuE5JpsWHPI/AAAAAAAAANQ/OnUqLdU5RY0/s640/DSC_0467.JPG" height="426" width="640" /></a>       
+      </p>
+
+
+      <h2>Step 18 - Micro SD Slot</h2>
+
+      <p>
+        To Follow.
+      </p>
+
+      <h2>Step 19 - Test Board</h2>
+
+      <p>
+        Congratulations, you have completed the build of your Wi-Node Backpack<br />
+        <br />
+        We can now see if you have done it successfully!<br />
+        <br />
+      </p>
+
+      <p>
+        If you have two boards with RFM12B modules, you can test them by using my <a href="https://github.com/ichilton/nanode-code/tree/master/test_rfm12b" target="_blank">RFM12B Test</a> code.
+      </p>
+
+      <p>
+        If you have fitted the optional MCP7941x Real Time Clock, you can test that out by using my <a href="https://github.com/ichilton/mcp7941x_arduino" taget="_blank">Arduino MCP7941x Library</a> and running the example sketches.
+      </p>
+
+      <p>
+        I'm also aiming to provide code to test other aspects of the board and some working examples of Nanode/Wi-Node usage, but in the meantime i'm collecting useful code snippets and links on my <a href="http://ichilton.github.com/nanode/" target="_blank">Nanode Information Page</a>.
+      </p>
 
       <p>&nbsp;</p>
 
