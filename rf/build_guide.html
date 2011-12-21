@@ -452,6 +452,8 @@
         <br />
         You also need to affix the small 32.768khz watch crystal for the real time clock. This can go either way around.<br />
         <br />
+        <strong>Note</strong> - after the production of the board, it was found that the MCP7941x requires 2x 22pF ceramic capacitors fitting. Without these, the RTC lost about a minute per day. To resolve this, fit a capacitor from each leg of the cystal to ground. I'll work out the best way to do this and add further instructions and photo(s) when I can. This is not required if you use a DS1307 IC instead of the MCP7941x.<br />
+        <br />
         <a href="http://www.flickr.com/photos/68664612@N02/6365793721/" title="BI2 - Step 31 - Optional MCP7941x Real Time Clock &amp; Crystal by Ian Chilton, on Flickr"><img src="http://farm7.staticflickr.com/6046/6365793721_d7c89608a8_z.jpg" width="640" height="426" alt="BI2 - Step 31 - Optional MCP7941x Real Time Clock &amp; Crystal"></a>
       </p>
 

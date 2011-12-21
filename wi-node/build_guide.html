@@ -155,6 +155,7 @@
 	      <li>1N4148 Diode - D2</li>
               <li>32.768khz Crystal - Y2</li>
 	      <li>An optional 0.22F super capacitor so the contents of the RTC and SRAM are not lost when the power is removed (shared with the 23K256 SRAM) - C16</li>
+              <li>2x 22pF capacitors (it's only recently been found that these are required so these may not have been included in your kit)</li>
 	    </ul>
           </li>
           <li>
@@ -531,6 +532,11 @@
         <a href="https://picasaweb.google.com/lh/photo/sE3idzNl6Vi6wG-zekgX0NMTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-G-qzvld3i3I/TuFLZk-v4jI/AAAAAAAAAPc/JW1237THPqo/s640/DSC_0501.JPG" height="426" width="640" /></a>
       </p>
 
+      <h3>Step 23f - 22pF Ceramic Capacitors (MCP7941x only)</h3>
+
+      <p style="margin-left: 20px;">
+        It has recently been found that if you use an MCP7941x chip you need to fit 2x 22pF capacitors, otherwise the clock loses around a minute a day. Fitting a 22pF between each leg of the 32.768khz crystal and ground fixes this problem. This is not required if you use a DS1307. Fortunately, the Wi-Node PCB contains space for either a DIL or an SOIC RTC chip, so you can do the other one to access the required pins. You should fit a 22pf capacitor between Pin 1 and Pin 4 (GND) and another between Pin 2 and Pin 4 (GND).
+      </p>
 
       <h2>Step 24 - L293D Motor Driver (Optional)</h2>
 

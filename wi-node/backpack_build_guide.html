@@ -140,6 +140,7 @@ l - #nanode on irc.freenode.net.
               <li>1N4148 Diode - D2</li>
               <li>32.768khz Crystal - Y2</li>
               <li>An optional 0.22F super capacitor so the contents of the RTC and SRAM are not lost when the power is removed (shared with the 23K256 SRAM) - C16</li>
+              <li>2x 22pF capacitors (it's only recently been found that these are required so these may not have been included in your kit)</li>
             </ul>
           </li>
           <li>
@@ -463,6 +464,13 @@ l - #nanode on irc.freenode.net.
         If you wish to keep the memory contents of the 23K256 and RTC when the power is removed, fit a 0.22F super capacitor. This goes in the bottom middle of the board, under the DS1307 DIL socket (to the right of the ATMega328). It is supplied unpolarised and can be fitted either way. I usually put the flat side to negative and have the arrows pointing to positive.<br />
         <br />
         <a href="https://picasaweb.google.com/lh/photo/2en7bGcfMvHPibrPYhUA19MTjNZETYmyPJy0liipFm0?feat=embedwebsite"><img src="https://lh3.googleusercontent.com/-4URghN79wds/TuE5A71GQKI/AAAAAAAAAMg/MYiGjPCCeT8/s640/DSC_0455.JPG" height="426" width="640" /></a>
+      </p>
+
+      <h3>Step 16f - 22pF Ceramic Capacitors (MCP7941x only)</h3>
+
+      <p style="margin-left: 20px;">
+        It has recently been found that if you use an MCP7941x chip you need to fit 2x 22pF capacitors, otherwise the clock loses around a minute a day. Fitting a 22pF between each leg of the 32.768khz crystal and ground fixes this problem. This is not required if you use a DS1307. Fortunately, the Wi-Node PCB contains space for either a DIL or an SOIC RTC chip, so you can do the other one to access the require
+d pins. You should fit a 22pf capacitor between Pin 1 and Pin 4 (GND) and another between Pin 2 and Pin 4 (GND).
       </p>
 
 
