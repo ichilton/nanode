@@ -177,6 +177,18 @@ l - #nanode on irc.freenode.net.
         </ul>
       </p>
 
+      <h2>Nanode 5 Modification</h2>
+
+      <p>
+        If you are using the backpack with a Nanode 5 board, you need to make a small and simple modification for the RFM12B on the backpack to work.<br />
+        <br />
+        The problem is that the INT0 line (Digital 2) on the Nanode 5 is being held by the 74HCT125 buffer, preventing it from being signalled by the INT from the RFM12 on the backpack.,br />
+        <br />
+        The solution is straightforward - just bend out Pin 6 of the 74HCT125 so that it does not go in the socket.<br />
+        <br />
+        On the standard Arduino, there is no 74HCT125 and you have direct access to Digital 2 so there is no problem.
+      </p>
+
       <p style="margin-top: 30px;">
         Ok, we're ready to start. Here is the PCB ready:<br />
         <br />
